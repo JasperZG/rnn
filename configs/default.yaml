@@ -1,0 +1,13 @@
+# Default full-scale configuration for Rockefeller A100 runs.
+seeds_per_condition: 50
+network_size: 128
+train_iters: 3000
+architectures: [rnn, gru, lstm]
+tasks: [memory, accumulation, gated, oscillation]
+convergence_gates:
+  memory: 0.05
+  accumulation: 0.01
+  gated: 0.05
+  oscillation: 0.02
+frequency_sweep: [0.05, 0.08, 0.10, 0.12, 0.15, 0.20]
+capacity_sizes: [1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64]
