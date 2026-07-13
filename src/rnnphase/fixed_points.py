@@ -55,8 +55,14 @@ def jacobian_eigs(net, point, u, device="cpu"):
     return np.linalg.eigvals(J.detach().cpu().numpy())
 
 
-def classify_point(evals, marg_lo=0.9, marg_hi=1.1):
-    """Stability + marginal-direction count from the Jacobian spectrum."""
+def classify_point(evals, marg_lo=0.9, marg_hi=1.02):
+    """Stability + marginal-direction count from the Jacobian spectrum.
+
+    marg_hi is a tight numerical tolerance around unity: a true marginal mode
+    (line attractor / oscillation onset) sits at |lambda|~=1.000, whereas a
+    saddle carries a genuine expanding direction |lambda|>1. A coarser upper
+    cutoff (e.g. 1.1) would misfile a mild saddle instability as marginal and
+    miss the separatrix saddle of a bistable memory."""
     mag = np.abs(evals)
     n_marg = int(((mag > marg_lo) & (mag < marg_hi)).sum())
     n_expand = int((mag > marg_hi).sum())

@@ -16,7 +16,7 @@ def run(sizes, seeds, iters, device, out):
     rows = []
     for N in sizes:
         for seed in range(seeds):
-            net = models.build("rnn", 1, 1, N, seed)
+            net = models.build("rnn", 1, 1, N, seed).to(device)
             loss = train.train_network(net, tasks.make_accumulation, iters=iters,
                                        device=device, seed=seed)
             rows.append({"N": N, "seed": seed, "loss": loss,

@@ -21,16 +21,29 @@ def run(task, seeds, archs, N, iters, device, out):
     for arch in archs:
         for seed in range(seeds):
             rot = 0.3 if (task == "oscillation" and arch == "rnn") else 0.0
-            net = models.build(arch, n_in, n_out, N, seed, rotation_init=rot)
+            net = models.build(arch, n_in, n_out, N, seed, rotation_init=rot).to(device)
             loss = train.train_network(net, fn, iters=iters, device=device, seed=seed)
             if not train.passes_gate(loss, GATE[task]):
                 rows.append({"task": task, "arch": arch, "seed": seed,
                              "converged": False, "loss": loss}); continue
             _, _, _, _, H = train.evaluate(net, fn, B=64, device=device)
             if arch == "rnn":
-                pts, sps, evals = fixed_points.find_slow_points(
-                    net, H[:, 20:], n_in, n_seed=300, steps=1200, speed_tol=1e-3)
-                lab = structure.classify_structure(pts, list(evals))["label"]
+                if task == "oscillation":
+                    # limit cycles are not fixed-point sets; the oscillation task
+                    # is a trigger-then-free-run, so H is the autonomous orbit --
+                    # detect a sustained cycle directly (classify_structure only
+                    # emits fixed-point / line-attractor labels).
+                    import numpy as np
+                    is_c, _ = structure.detect_limit_cycle(H[0].detach().cpu().numpy())
+                    lab = "limit_cycle" if is_c else "none"
+                else:
+                    # dedup=0.1 (not 0.5) so a line-attractor continuum is
+                    # populated with enough points to be detected; well-separated
+                    # discrete fixed points stay distinct either way.
+                    pts, sps, evals = fixed_points.find_slow_points(
+                        net, H[:, 20:], n_in, n_seed=300, steps=1200, speed_tol=1e-3,
+                        dedup=0.1, device=device)
+                    lab = structure.classify_structure(pts, list(evals))["label"]
             else:
                 lab = "gated_arch_skip"  # FP analysis defined for vanilla RNN activations
             rows.append({"task": task, "arch": arch, "seed": seed, "converged": True,

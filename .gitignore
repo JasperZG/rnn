@@ -5,3 +5,6 @@ results/smoke_*.json
 results/verify_*.json
 *.pt
 .ipynb_checkpoints/
+
+# local backup of pre-fix (buggy) results, not for publication
+results_v1_backup/

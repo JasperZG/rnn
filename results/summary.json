@@ -1,0 +1,54 @@
+{
+  "structure": {
+    "accumulation": {
+      "n_total": 150,
+      "n_converged": 130,
+      "n_rnn_analyzed": 33,
+      "match_fraction": 1.0
+    },
+    "gated": {
+      "n_total": 150,
+      "n_converged": 150,
+      "n_rnn_analyzed": 50,
+      "match_fraction": 1.0
+    },
+    "memory": {
+      "n_total": 150,
+      "n_converged": 150,
+      "n_rnn_analyzed": 50,
+      "match_fraction": 0.96
+    },
+    "oscillation": {
+      "n_total": 150,
+      "n_converged": 142,
+      "n_rnn_analyzed": 45,
+      "match_fraction": 1.0
+    }
+  },
+  "frequency": {
+    "n": 239,
+    "mean_abs_err": 0.01951,
+    "max_abs_err": 0.45856
+  },
+  "capacity": {
+    "solve_rate_by_size": {
+      "1": 0.06,
+      "2": 0.36,
+      "3": 0.64,
+      "4": 0.78,
+      "6": 0.88,
+      "8": 0.86,
+      "12": 0.9,
+      "16": 0.96,
+      "24": 0.96,
+      "32": 0.92,
+      "48": 0.82,
+      "64": 0.74
+    }
+  },
+  "xray": {
+    "n": 43,
+    "mean_predicted_extent_hi": 0.949,
+    "mean_observed_failure_onset": 0.96
+  }
+}

@@ -1,0 +1,1502 @@
+[
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 0,
+  "converged": true,
+  "loss": 0.0002942541614174843,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 1,
+  "converged": true,
+  "loss": 0.0009838654659688473,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 2,
+  "converged": true,
+  "loss": 0.0012164388317614794,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 3,
+  "converged": true,
+  "loss": 0.00043000225559808314,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 4,
+  "converged": true,
+  "loss": 0.00040334215736947954,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 5,
+  "converged": true,
+  "loss": 0.0005260570906102657,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 6,
+  "converged": true,
+  "loss": 0.0003993049613200128,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 7,
+  "converged": true,
+  "loss": 0.0003415841201785952,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 8,
+  "converged": true,
+  "loss": 0.0004240803827997297,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 9,
+  "converged": true,
+  "loss": 0.00030769669683650136,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 10,
+  "converged": true,
+  "loss": 0.00048515608068555593,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 11,
+  "converged": true,
+  "loss": 0.0008651315001770854,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 12,
+  "converged": true,
+  "loss": 0.0045996736735105515,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 13,
+  "converged": true,
+  "loss": 0.0009052014211192727,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 14,
+  "converged": true,
+  "loss": 0.00038172409404069185,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 15,
+  "converged": true,
+  "loss": 0.0003967313386965543,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 16,
+  "converged": true,
+  "loss": 0.0023107684683054686,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 17,
+  "converged": true,
+  "loss": 0.009375727735459805,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 18,
+  "converged": true,
+  "loss": 0.00039666646625846624,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 19,
+  "converged": true,
+  "loss": 0.0004194822395220399,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 20,
+  "converged": true,
+  "loss": 0.00036267086397856474,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 21,
+  "converged": true,
+  "loss": 0.0002941350103355944,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 22,
+  "converged": true,
+  "loss": 0.0003511215909384191,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 23,
+  "converged": true,
+  "loss": 0.0009274527546949685,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 24,
+  "converged": true,
+  "loss": 0.0003707403957378119,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 25,
+  "converged": true,
+  "loss": 0.00023976877855602652,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 26,
+  "converged": true,
+  "loss": 0.00046775961527600884,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 27,
+  "converged": true,
+  "loss": 0.0002628252550493926,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 28,
+  "converged": true,
+  "loss": 0.0004216462839394808,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 29,
+  "converged": true,
+  "loss": 0.0004076063632965088,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.0012979301391169429,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 31,
+  "converged": true,
+  "loss": 0.0003856441762764007,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 32,
+  "converged": true,
+  "loss": 0.009955390356481075,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 33,
+  "converged": true,
+  "loss": 0.0004033920122310519,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 34,
+  "converged": true,
+  "loss": 0.0002541922149248421,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 35,
+  "converged": true,
+  "loss": 0.0003437937702983618,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 36,
+  "converged": true,
+  "loss": 0.00024582335026934743,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 37,
+  "converged": true,
+  "loss": 0.0034388878848403692,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 38,
+  "converged": true,
+  "loss": 0.0006262071547098458,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 39,
+  "converged": true,
+  "loss": 0.000532595266122371,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 40,
+  "converged": true,
+  "loss": 0.0003429499629419297,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 41,
+  "converged": true,
+  "loss": 0.00048228513333015144,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 42,
+  "converged": true,
+  "loss": 0.0004895072197541595,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 43,
+  "converged": true,
+  "loss": 0.0003801847924478352,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 44,
+  "converged": true,
+  "loss": 0.003921935334801674,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 45,
+  "converged": true,
+  "loss": 0.0002903423737734556,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 46,
+  "converged": true,
+  "loss": 0.00031092390418052673,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 47,
+  "converged": true,
+  "loss": 0.0002479873946867883,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 48,
+  "converged": true,
+  "loss": 0.0002847928262781352,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "rnn",
+  "seed": 49,
+  "converged": true,
+  "loss": 0.001366951852105558,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 0,
+  "converged": true,
+  "loss": 0.00011091435590060428,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 1,
+  "converged": true,
+  "loss": 0.00011808465205831453,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 2,
+  "converged": true,
+  "loss": 0.0001522115053376183,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 3,
+  "converged": true,
+  "loss": 0.00013140680675860494,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 4,
+  "converged": true,
+  "loss": 0.00014832823944743723,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 5,
+  "converged": true,
+  "loss": 0.00011481446563266218,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 6,
+  "converged": true,
+  "loss": 0.00013465849042404443,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 7,
+  "converged": true,
+  "loss": 0.00011323743819957599,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 8,
+  "converged": true,
+  "loss": 0.00011436410568421707,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 9,
+  "converged": true,
+  "loss": 0.00016650477482471615,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 10,
+  "converged": true,
+  "loss": 0.00012666764087043703,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 11,
+  "converged": true,
+  "loss": 0.00018685734539758414,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 12,
+  "converged": true,
+  "loss": 0.00011415023618610576,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 13,
+  "converged": true,
+  "loss": 0.00014557169924955815,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 14,
+  "converged": true,
+  "loss": 0.00015476314001716673,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 15,
+  "converged": true,
+  "loss": 9.58456948865205e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 16,
+  "converged": true,
+  "loss": 9.904626494972035e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 17,
+  "converged": true,
+  "loss": 0.00011094905494246632,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 18,
+  "converged": true,
+  "loss": 0.00014422308595385402,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 19,
+  "converged": true,
+  "loss": 0.00011803080997196957,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 20,
+  "converged": true,
+  "loss": 0.00013120366202201694,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 21,
+  "converged": true,
+  "loss": 0.00010163127444684505,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 22,
+  "converged": true,
+  "loss": 0.00012191657879156992,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 23,
+  "converged": true,
+  "loss": 0.0003528334782458842,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 24,
+  "converged": true,
+  "loss": 0.00012023040471831337,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 25,
+  "converged": true,
+  "loss": 0.00015357983647845685,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 26,
+  "converged": true,
+  "loss": 0.0001765937777236104,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 27,
+  "converged": true,
+  "loss": 0.0001922698866110295,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 28,
+  "converged": true,
+  "loss": 0.0001128458243329078,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 29,
+  "converged": true,
+  "loss": 0.00011956269736401737,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.00018584166537038982,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 31,
+  "converged": true,
+  "loss": 0.0001110892990254797,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 32,
+  "converged": true,
+  "loss": 0.00010743088932940736,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 33,
+  "converged": true,
+  "loss": 0.00019500358030200005,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 34,
+  "converged": true,
+  "loss": 0.00029462730162777007,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 35,
+  "converged": true,
+  "loss": 0.0001496211189078167,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 36,
+  "converged": true,
+  "loss": 0.00012160110054537654,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 37,
+  "converged": true,
+  "loss": 0.00010868527897400782,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 38,
+  "converged": true,
+  "loss": 6.612067954847589e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 39,
+  "converged": true,
+  "loss": 0.000145326106576249,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 40,
+  "converged": true,
+  "loss": 9.971309191314504e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 41,
+  "converged": true,
+  "loss": 0.0002964320301543921,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 42,
+  "converged": true,
+  "loss": 0.00014637668209616095,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 43,
+  "converged": true,
+  "loss": 0.00018038757843896747,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 44,
+  "converged": true,
+  "loss": 0.00010005924559663981,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 45,
+  "converged": true,
+  "loss": 0.00029303980409167707,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 46,
+  "converged": true,
+  "loss": 0.00010754855611594394,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 47,
+  "converged": true,
+  "loss": 0.000101892052043695,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 48,
+  "converged": true,
+  "loss": 9.422056609764695e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "gru",
+  "seed": 49,
+  "converged": true,
+  "loss": 8.731978596188128e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 0,
+  "converged": true,
+  "loss": 0.0001081434529623948,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 1,
+  "converged": true,
+  "loss": 0.00011597213597269729,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 2,
+  "converged": true,
+  "loss": 0.0002696933224797249,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 3,
+  "converged": true,
+  "loss": 0.0001410908007528633,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 4,
+  "converged": true,
+  "loss": 0.00018174777505919337,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 5,
+  "converged": true,
+  "loss": 9.891104855341837e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 6,
+  "converged": true,
+  "loss": 0.00012570050603244454,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 7,
+  "converged": true,
+  "loss": 0.00011246378562645987,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 8,
+  "converged": true,
+  "loss": 0.00020375376334413886,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 9,
+  "converged": true,
+  "loss": 0.00011302534403512254,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 10,
+  "converged": true,
+  "loss": 0.0001424330985173583,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 11,
+  "converged": true,
+  "loss": 0.00016736930410843343,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 12,
+  "converged": true,
+  "loss": 9.81579432846047e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 13,
+  "converged": true,
+  "loss": 0.00010532796295592561,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 14,
+  "converged": true,
+  "loss": 9.022452286444604e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 15,
+  "converged": true,
+  "loss": 9.662249794928357e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 16,
+  "converged": true,
+  "loss": 0.00011205658665858209,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 17,
+  "converged": true,
+  "loss": 8.683372288942337e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 18,
+  "converged": true,
+  "loss": 0.00016317509289365262,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 19,
+  "converged": true,
+  "loss": 0.000116765993880108,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 20,
+  "converged": true,
+  "loss": 0.00010585421114228666,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 21,
+  "converged": true,
+  "loss": 0.00010938882769551128,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 22,
+  "converged": true,
+  "loss": 0.007946192286908627,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 23,
+  "converged": true,
+  "loss": 0.00011734943836927414,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 24,
+  "converged": true,
+  "loss": 9.146938100457191e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 25,
+  "converged": true,
+  "loss": 0.00010954010940622538,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 26,
+  "converged": true,
+  "loss": 0.0001377815060550347,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 27,
+  "converged": true,
+  "loss": 0.00016000722825992852,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 28,
+  "converged": true,
+  "loss": 0.00016379321459680796,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 29,
+  "converged": true,
+  "loss": 9.825013694353402e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.00016588764265179634,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 31,
+  "converged": true,
+  "loss": 8.947679452830926e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 32,
+  "converged": true,
+  "loss": 8.045418508118019e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 33,
+  "converged": true,
+  "loss": 0.0011718858731910586,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 34,
+  "converged": true,
+  "loss": 8.637842984171584e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 35,
+  "converged": true,
+  "loss": 0.00013622931146528572,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 36,
+  "converged": true,
+  "loss": 0.00012967367365490645,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 37,
+  "converged": true,
+  "loss": 9.047482308233157e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 38,
+  "converged": true,
+  "loss": 8.003067341633141e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 39,
+  "converged": true,
+  "loss": 0.00014991062926128507,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 40,
+  "converged": true,
+  "loss": 0.00011339314369251952,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 41,
+  "converged": true,
+  "loss": 0.0001006042948574759,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 42,
+  "converged": true,
+  "loss": 0.00021929704234935343,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 43,
+  "converged": true,
+  "loss": 0.00011928804451599717,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 44,
+  "converged": true,
+  "loss": 9.07914072740823e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 45,
+  "converged": true,
+  "loss": 0.00016265263548120856,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 46,
+  "converged": true,
+  "loss": 0.0001297854323638603,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 47,
+  "converged": true,
+  "loss": 0.0001864419609773904,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 48,
+  "converged": true,
+  "loss": 0.0007770970114506781,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "gated",
+  "arch": "lstm",
+  "seed": 49,
+  "converged": true,
+  "loss": 9.10453381948173e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ }
+]

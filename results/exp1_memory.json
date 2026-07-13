@@ -1,0 +1,1502 @@
+[
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 0,
+  "converged": true,
+  "loss": 0.048670683056116104,
+  "recovered": "line_attractor",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 1,
+  "converged": true,
+  "loss": 2.2403040929930285e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 2,
+  "converged": true,
+  "loss": 0.00011295772856101394,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 3,
+  "converged": true,
+  "loss": 2.8952403226867318e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 4,
+  "converged": true,
+  "loss": 8.610706572653726e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 5,
+  "converged": true,
+  "loss": 6.6632096604735125e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 6,
+  "converged": true,
+  "loss": 1.5876159523031674e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 7,
+  "converged": true,
+  "loss": 0.0016283032018691301,
+  "recovered": "line_attractor",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 8,
+  "converged": true,
+  "loss": 6.790617771912366e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 9,
+  "converged": true,
+  "loss": 6.494074114016257e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 10,
+  "converged": true,
+  "loss": 8.677960067871027e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 11,
+  "converged": true,
+  "loss": 8.36166218505241e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 12,
+  "converged": true,
+  "loss": 4.545819683698937e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 13,
+  "converged": true,
+  "loss": 2.8924581783940084e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 14,
+  "converged": true,
+  "loss": 1.0081233085657004e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 15,
+  "converged": true,
+  "loss": 6.320580723695457e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 16,
+  "converged": true,
+  "loss": 1.9154960682499222e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 17,
+  "converged": true,
+  "loss": 6.5333774728060234e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 18,
+  "converged": true,
+  "loss": 1.0786899110826198e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 19,
+  "converged": true,
+  "loss": 0.00010819945600815117,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 20,
+  "converged": true,
+  "loss": 0.00019282393623143435,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 21,
+  "converged": true,
+  "loss": 1.6519637938472442e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 22,
+  "converged": true,
+  "loss": 7.769534931867383e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 23,
+  "converged": true,
+  "loss": 1.805203100957442e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 24,
+  "converged": true,
+  "loss": 0.0006459338474087417,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 25,
+  "converged": true,
+  "loss": 6.3295801737695e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 26,
+  "converged": true,
+  "loss": 8.054958016145974e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 27,
+  "converged": true,
+  "loss": 6.559721441590227e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 28,
+  "converged": true,
+  "loss": 8.046507900871802e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 29,
+  "converged": true,
+  "loss": 9.33686715143267e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.0002724438381846994,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 31,
+  "converged": true,
+  "loss": 1.0122826097358484e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 32,
+  "converged": true,
+  "loss": 5.833737304783426e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 33,
+  "converged": true,
+  "loss": 5.555413736146875e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 34,
+  "converged": true,
+  "loss": 1.63410950335674e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 35,
+  "converged": true,
+  "loss": 1.4273728993430268e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 36,
+  "converged": true,
+  "loss": 1.6269479601760395e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 37,
+  "converged": true,
+  "loss": 0.00011843458923976868,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 38,
+  "converged": true,
+  "loss": 9.09097525436664e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 39,
+  "converged": true,
+  "loss": 2.6257726858602837e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 40,
+  "converged": true,
+  "loss": 0.00011148830526508391,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 41,
+  "converged": true,
+  "loss": 1.1465922398201656e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 42,
+  "converged": true,
+  "loss": 5.073821739642881e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 43,
+  "converged": true,
+  "loss": 1.179260198114207e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 44,
+  "converged": true,
+  "loss": 0.00010813782864715904,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 45,
+  "converged": true,
+  "loss": 9.321019206254277e-06,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 46,
+  "converged": true,
+  "loss": 3.2925054256338626e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 47,
+  "converged": true,
+  "loss": 1.3543209206545725e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 48,
+  "converged": true,
+  "loss": 9.774234058568254e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "rnn",
+  "seed": 49,
+  "converged": true,
+  "loss": 2.196919740526937e-05,
+  "recovered": "discrete_fixed_points",
+  "predicted": "discrete_fixed_points",
+  "match": true
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 0,
+  "converged": true,
+  "loss": 2.9423348678392358e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 1,
+  "converged": true,
+  "loss": 1.0154473784496076e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 2,
+  "converged": true,
+  "loss": 1.526314372313209e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 3,
+  "converged": true,
+  "loss": 2.2327314582071267e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 4,
+  "converged": true,
+  "loss": 4.819231980945915e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 5,
+  "converged": true,
+  "loss": 1.4258700502978172e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 6,
+  "converged": true,
+  "loss": 3.0174847779562697e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 7,
+  "converged": true,
+  "loss": 2.001855864364188e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 8,
+  "converged": true,
+  "loss": 1.2935673112224322e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 9,
+  "converged": true,
+  "loss": 0.0005605805199593306,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 10,
+  "converged": true,
+  "loss": 1.0925888091151137e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 11,
+  "converged": true,
+  "loss": 3.974188075517304e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 12,
+  "converged": true,
+  "loss": 3.6113826354267076e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 13,
+  "converged": true,
+  "loss": 2.262764610350132e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 14,
+  "converged": true,
+  "loss": 1.5722982425359078e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 15,
+  "converged": true,
+  "loss": 1.2988773960387334e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 16,
+  "converged": true,
+  "loss": 3.831658614217304e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 17,
+  "converged": true,
+  "loss": 2.716802373470273e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 18,
+  "converged": true,
+  "loss": 4.533855098998174e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 19,
+  "converged": true,
+  "loss": 2.4045864847721532e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 20,
+  "converged": true,
+  "loss": 2.658754601725377e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 21,
+  "converged": true,
+  "loss": 1.6625101125100628e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 22,
+  "converged": true,
+  "loss": 3.254182593082078e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 23,
+  "converged": true,
+  "loss": 1.5429215636686422e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 24,
+  "converged": true,
+  "loss": 1.0867630408029072e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 25,
+  "converged": true,
+  "loss": 1.0522841876081657e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 26,
+  "converged": true,
+  "loss": 3.255128103774041e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 27,
+  "converged": true,
+  "loss": 1.4172243027132936e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 28,
+  "converged": true,
+  "loss": 7.631915650563315e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 29,
+  "converged": true,
+  "loss": 1.4183364328346215e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.0001623146963538602,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 31,
+  "converged": true,
+  "loss": 3.060769086005166e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 32,
+  "converged": true,
+  "loss": 7.45512170396978e-06,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 33,
+  "converged": true,
+  "loss": 6.914033292559907e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 34,
+  "converged": true,
+  "loss": 8.215140042011626e-06,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 35,
+  "converged": true,
+  "loss": 1.6373700418625958e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 36,
+  "converged": true,
+  "loss": 3.3730422728694975e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 37,
+  "converged": true,
+  "loss": 0.00017052391194738448,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 38,
+  "converged": true,
+  "loss": 1.9520697605912574e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 39,
+  "converged": true,
+  "loss": 1.031734973366838e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 40,
+  "converged": true,
+  "loss": 1.81281993718585e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 41,
+  "converged": true,
+  "loss": 2.2465590518550016e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 42,
+  "converged": true,
+  "loss": 1.3511265024135355e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 43,
+  "converged": true,
+  "loss": 0.00010530436702538282,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 44,
+  "converged": true,
+  "loss": 1.3104739082336891e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 45,
+  "converged": true,
+  "loss": 1.728023198666051e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 46,
+  "converged": true,
+  "loss": 1.4322276001621503e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 47,
+  "converged": true,
+  "loss": 1.570291533425916e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 48,
+  "converged": true,
+  "loss": 1.7780692360247485e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "gru",
+  "seed": 49,
+  "converged": true,
+  "loss": 2.8386528356350027e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 0,
+  "converged": true,
+  "loss": 1.6300298739224672e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 1,
+  "converged": true,
+  "loss": 8.059824722295161e-06,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 2,
+  "converged": true,
+  "loss": 1.589015664649196e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 3,
+  "converged": true,
+  "loss": 2.6311514375265688e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 4,
+  "converged": true,
+  "loss": 1.7571346688782796e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 5,
+  "converged": true,
+  "loss": 2.72647594101727e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 6,
+  "converged": true,
+  "loss": 9.685601980891079e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 7,
+  "converged": true,
+  "loss": 2.763609700195957e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 8,
+  "converged": true,
+  "loss": 1.668005825194996e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 9,
+  "converged": true,
+  "loss": 1.950893783941865e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 10,
+  "converged": true,
+  "loss": 2.6830986826098524e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 11,
+  "converged": true,
+  "loss": 2.7840327675221488e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 12,
+  "converged": true,
+  "loss": 3.308757004560903e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 13,
+  "converged": true,
+  "loss": 2.4020540877245367e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 14,
+  "converged": true,
+  "loss": 8.131445792969316e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 15,
+  "converged": true,
+  "loss": 2.6377168978797272e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 16,
+  "converged": true,
+  "loss": 1.808619526855182e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 17,
+  "converged": true,
+  "loss": 1.2580170732690021e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 18,
+  "converged": true,
+  "loss": 4.1433209844399244e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 19,
+  "converged": true,
+  "loss": 1.816522126318887e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 20,
+  "converged": true,
+  "loss": 3.5412620491115376e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 21,
+  "converged": true,
+  "loss": 0.00012981306645087898,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 22,
+  "converged": true,
+  "loss": 3.30032198689878e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 23,
+  "converged": true,
+  "loss": 3.554433715180494e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 24,
+  "converged": true,
+  "loss": 1.8849228581530042e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 25,
+  "converged": true,
+  "loss": 1.3944320016889833e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 26,
+  "converged": true,
+  "loss": 1.539162258268334e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 27,
+  "converged": true,
+  "loss": 2.0623610907932743e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 28,
+  "converged": true,
+  "loss": 4.3762447603512555e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 29,
+  "converged": true,
+  "loss": 1.8876986359828152e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 30,
+  "converged": true,
+  "loss": 3.4457723813829944e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 31,
+  "converged": true,
+  "loss": 2.4439807020826265e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 32,
+  "converged": true,
+  "loss": 1.483758296672022e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 33,
+  "converged": true,
+  "loss": 3.107969314442016e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 34,
+  "converged": true,
+  "loss": 1.7262440451304428e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 35,
+  "converged": true,
+  "loss": 3.214061871403828e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 36,
+  "converged": true,
+  "loss": 5.873164627701044e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 37,
+  "converged": true,
+  "loss": 2.9863609597668983e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 38,
+  "converged": true,
+  "loss": 8.203730430977885e-06,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 39,
+  "converged": true,
+  "loss": 5.89259470871184e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 40,
+  "converged": true,
+  "loss": 2.4452876459690742e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 41,
+  "converged": true,
+  "loss": 2.280478656757623e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 42,
+  "converged": true,
+  "loss": 2.9698097932850942e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 43,
+  "converged": true,
+  "loss": 1.4083537280384917e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 44,
+  "converged": true,
+  "loss": 2.6961384719470516e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 45,
+  "converged": true,
+  "loss": 7.915597234386951e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 46,
+  "converged": true,
+  "loss": 2.5896395527524874e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 47,
+  "converged": true,
+  "loss": 1.782484287105035e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 48,
+  "converged": true,
+  "loss": 1.721387161524035e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ },
+ {
+  "task": "memory",
+  "arch": "lstm",
+  "seed": 49,
+  "converged": true,
+  "loss": 5.3221334383124486e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "discrete_fixed_points",
+  "match": false
+ }
+]

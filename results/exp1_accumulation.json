@@ -1,0 +1,1442 @@
+[
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 0,
+  "converged": false,
+  "loss": 0.02426839992403984
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 1,
+  "converged": false,
+  "loss": 0.014058339409530163
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 2,
+  "converged": true,
+  "loss": 0.00502209085971117,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 3,
+  "converged": true,
+  "loss": 0.0050577884539961815,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 4,
+  "converged": true,
+  "loss": 0.008448940701782703,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 5,
+  "converged": true,
+  "loss": 0.00281655415892601,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 6,
+  "converged": false,
+  "loss": 0.013275382108986378
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 7,
+  "converged": true,
+  "loss": 0.009631460532546043,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 8,
+  "converged": true,
+  "loss": 0.006030752789229155,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 9,
+  "converged": false,
+  "loss": 0.011918745934963226
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 10,
+  "converged": true,
+  "loss": 0.0025955226738005877,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 11,
+  "converged": true,
+  "loss": 0.0036586117930710316,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 12,
+  "converged": true,
+  "loss": 0.0036246455274522305,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 13,
+  "converged": true,
+  "loss": 0.0018309999722987413,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 14,
+  "converged": true,
+  "loss": 0.008982029743492603,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 15,
+  "converged": false,
+  "loss": 0.018410425633192062
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 16,
+  "converged": false,
+  "loss": 0.02137078531086445
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 17,
+  "converged": false,
+  "loss": 0.08740109205245972
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 18,
+  "converged": true,
+  "loss": 0.005732228048145771,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 19,
+  "converged": true,
+  "loss": 0.009835279546678066,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 20,
+  "converged": true,
+  "loss": 0.005456802900880575,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 21,
+  "converged": true,
+  "loss": 0.002575373975560069,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 22,
+  "converged": true,
+  "loss": 0.0047378079034388065,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 23,
+  "converged": true,
+  "loss": 0.00706767663359642,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 24,
+  "converged": false,
+  "loss": 0.010588409379124641
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 25,
+  "converged": true,
+  "loss": 0.00644006859511137,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 26,
+  "converged": true,
+  "loss": 0.00930444709956646,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 27,
+  "converged": true,
+  "loss": 0.008748417720198631,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 28,
+  "converged": true,
+  "loss": 0.004058596678078175,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 29,
+  "converged": true,
+  "loss": 0.0057565695606172085,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 30,
+  "converged": false,
+  "loss": 0.011109928600490093
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 31,
+  "converged": false,
+  "loss": 0.014452564530074596
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 32,
+  "converged": true,
+  "loss": 0.009816965088248253,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 33,
+  "converged": true,
+  "loss": 0.006771460175514221,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 34,
+  "converged": false,
+  "loss": 0.014240017160773277
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 35,
+  "converged": true,
+  "loss": 0.008732154034078121,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 36,
+  "converged": false,
+  "loss": 0.020358311012387276
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 37,
+  "converged": true,
+  "loss": 0.008462471887469292,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 38,
+  "converged": false,
+  "loss": 0.023489544168114662
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 39,
+  "converged": true,
+  "loss": 0.005703969392925501,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 40,
+  "converged": false,
+  "loss": 0.042305611073970795
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 41,
+  "converged": false,
+  "loss": 0.02196473442018032
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 42,
+  "converged": true,
+  "loss": 0.00398654630407691,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 43,
+  "converged": true,
+  "loss": 0.0021074891556054354,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 44,
+  "converged": true,
+  "loss": 0.007483030203729868,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 45,
+  "converged": true,
+  "loss": 0.0025701255071908236,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 46,
+  "converged": true,
+  "loss": 0.005986139178276062,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 47,
+  "converged": false,
+  "loss": 0.011680313386023045
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 48,
+  "converged": true,
+  "loss": 0.008304692804813385,
+  "recovered": "line_attractor",
+  "predicted": "line_attractor",
+  "match": true
+ },
+ {
+  "task": "accumulation",
+  "arch": "rnn",
+  "seed": 49,
+  "converged": false,
+  "loss": 0.01292489469051361
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 0,
+  "converged": true,
+  "loss": 7.849383837310597e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 1,
+  "converged": true,
+  "loss": 5.838468132424168e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 2,
+  "converged": true,
+  "loss": 5.788122143712826e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 3,
+  "converged": true,
+  "loss": 0.0001378376327920705,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 4,
+  "converged": true,
+  "loss": 0.00024688325356692076,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 5,
+  "converged": true,
+  "loss": 0.00033228902611881495,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 6,
+  "converged": true,
+  "loss": 3.6010977055411786e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 7,
+  "converged": true,
+  "loss": 6.932146061444655e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 8,
+  "converged": true,
+  "loss": 4.025864109280519e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 9,
+  "converged": true,
+  "loss": 0.00028486293740570545,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 10,
+  "converged": true,
+  "loss": 2.2835662093712017e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 11,
+  "converged": true,
+  "loss": 0.0009141899645328522,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 12,
+  "converged": true,
+  "loss": 4.86766584799625e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 13,
+  "converged": false,
+  "loss": 0.05982085317373276
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 14,
+  "converged": true,
+  "loss": 0.0005004274426028132,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 15,
+  "converged": true,
+  "loss": 7.261910650413483e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 16,
+  "converged": true,
+  "loss": 2.1655210730386898e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 17,
+  "converged": true,
+  "loss": 3.036679481738247e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 18,
+  "converged": true,
+  "loss": 2.5083441869355738e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 19,
+  "converged": true,
+  "loss": 2.0158611732767895e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 20,
+  "converged": true,
+  "loss": 6.708384898956865e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 21,
+  "converged": true,
+  "loss": 5.426862117019482e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 22,
+  "converged": true,
+  "loss": 4.87593533762265e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 23,
+  "converged": true,
+  "loss": 0.00013784124166704714,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 24,
+  "converged": true,
+  "loss": 2.6529738534009084e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 25,
+  "converged": true,
+  "loss": 0.0006072639371268451,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 26,
+  "converged": true,
+  "loss": 0.0008183666504919529,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 27,
+  "converged": true,
+  "loss": 0.0007468039402738214,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 28,
+  "converged": true,
+  "loss": 8.968599286163226e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 29,
+  "converged": true,
+  "loss": 5.6842003687052056e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.0038059777580201626,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 31,
+  "converged": true,
+  "loss": 3.133079735562205e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 32,
+  "converged": true,
+  "loss": 6.675683107459918e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 33,
+  "converged": true,
+  "loss": 0.00013898911129217595,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 34,
+  "converged": true,
+  "loss": 0.0010991159360855818,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 35,
+  "converged": true,
+  "loss": 0.00011329948756610975,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 36,
+  "converged": true,
+  "loss": 3.178091355948709e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 37,
+  "converged": true,
+  "loss": 6.350034527713433e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 38,
+  "converged": true,
+  "loss": 3.558402750059031e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 39,
+  "converged": true,
+  "loss": 3.1896302971290424e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 40,
+  "converged": true,
+  "loss": 3.152250428684056e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 41,
+  "converged": true,
+  "loss": 0.0003078589797951281,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 42,
+  "converged": true,
+  "loss": 0.001236239797435701,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 43,
+  "converged": true,
+  "loss": 4.759911826113239e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 44,
+  "converged": true,
+  "loss": 4.6953984565334395e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 45,
+  "converged": true,
+  "loss": 1.935153159138281e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 46,
+  "converged": false,
+  "loss": 0.03172675892710686
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 47,
+  "converged": true,
+  "loss": 7.219141843961552e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 48,
+  "converged": true,
+  "loss": 3.6616977013181895e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "gru",
+  "seed": 49,
+  "converged": true,
+  "loss": 0.000143497803946957,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 0,
+  "converged": true,
+  "loss": 0.002007388276979327,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 1,
+  "converged": true,
+  "loss": 2.1841968191438355e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 2,
+  "converged": true,
+  "loss": 0.0002781625953502953,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 3,
+  "converged": true,
+  "loss": 8.231458195950836e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 4,
+  "converged": true,
+  "loss": 0.00013086266699247062,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 5,
+  "converged": true,
+  "loss": 0.00010762177407741547,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 6,
+  "converged": true,
+  "loss": 7.79257679823786e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 7,
+  "converged": true,
+  "loss": 0.009726273827254772,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 8,
+  "converged": true,
+  "loss": 3.389965058886446e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 9,
+  "converged": true,
+  "loss": 0.0010547757847234607,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 10,
+  "converged": true,
+  "loss": 2.9393622753559612e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 11,
+  "converged": true,
+  "loss": 3.0258623155532405e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 12,
+  "converged": true,
+  "loss": 3.6395565985003486e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 13,
+  "converged": false,
+  "loss": 0.010863089933991432
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 14,
+  "converged": true,
+  "loss": 1.6308486010530032e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 15,
+  "converged": true,
+  "loss": 0.0008811876177787781,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 16,
+  "converged": true,
+  "loss": 2.3519383830716833e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 17,
+  "converged": true,
+  "loss": 0.0012167252134531736,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 18,
+  "converged": true,
+  "loss": 1.5674022506573237e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 19,
+  "converged": true,
+  "loss": 0.00685835350304842,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 20,
+  "converged": true,
+  "loss": 0.00015503214672207832,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 21,
+  "converged": true,
+  "loss": 4.827342854696326e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 22,
+  "converged": true,
+  "loss": 0.008714573457837105,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 23,
+  "converged": true,
+  "loss": 0.00011773060396080837,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 24,
+  "converged": true,
+  "loss": 0.005163842812180519,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 25,
+  "converged": true,
+  "loss": 9.162419883068651e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 26,
+  "converged": true,
+  "loss": 0.00016926763055380434,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 27,
+  "converged": true,
+  "loss": 0.0031500179320573807,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 28,
+  "converged": true,
+  "loss": 5.699998655472882e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 29,
+  "converged": true,
+  "loss": 8.707477536518127e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 30,
+  "converged": true,
+  "loss": 0.00040449356311000884,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 31,
+  "converged": true,
+  "loss": 0.0013699965784326196,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 32,
+  "converged": true,
+  "loss": 8.033559424802661e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 33,
+  "converged": true,
+  "loss": 0.00016342099115718156,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 34,
+  "converged": true,
+  "loss": 0.0001475694152759388,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 35,
+  "converged": true,
+  "loss": 1.7150905478047207e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 36,
+  "converged": true,
+  "loss": 2.208688238169998e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 37,
+  "converged": true,
+  "loss": 4.984878614777699e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 38,
+  "converged": true,
+  "loss": 3.719608503160998e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 39,
+  "converged": true,
+  "loss": 0.0002268044336233288,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 40,
+  "converged": true,
+  "loss": 0.00010089521674672142,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 41,
+  "converged": true,
+  "loss": 0.000936468131840229,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 42,
+  "converged": true,
+  "loss": 2.8579728677868843e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 43,
+  "converged": true,
+  "loss": 0.00011591138172661886,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 44,
+  "converged": true,
+  "loss": 9.071661770576611e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 45,
+  "converged": true,
+  "loss": 0.0006242396193556488,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 46,
+  "converged": true,
+  "loss": 0.0005473455530591309,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 47,
+  "converged": true,
+  "loss": 3.927490979549475e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 48,
+  "converged": true,
+  "loss": 4.514727334026247e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ },
+ {
+  "task": "accumulation",
+  "arch": "lstm",
+  "seed": 49,
+  "converged": true,
+  "loss": 3.441559965722263e-05,
+  "recovered": "gated_arch_skip",
+  "predicted": "line_attractor",
+  "match": false
+ }
+]

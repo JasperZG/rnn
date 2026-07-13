@@ -17,11 +17,45 @@ import torch, numpy as np
 from .fixed_points import jacobian_eigs
 
 
-def frequency_from_angle(net, point, n_in, device="cpu"):
+def _cycle_center(net, orbit, n_in, steps=2000, lr=0.02, device="cpu"):
+    """Unstable focus at the CENTER of a limit cycle: descend the autonomous
+    speed |F(h)-h|^2 from the orbit mean. The frequency-from-angle relation is
+    the Hopf picture -- it holds at this central fixed point, NOT at a point on
+    the orbit itself (where the one-step Jacobian mixes the flow direction and
+    gives the wrong -- often harmonic -- angle)."""
     u = torch.zeros(1, n_in, device=device)
-    ev = jacobian_eigs(net, point, u, device)
-    lam = ev[np.argmax(np.abs(ev))]
-    return float(abs(np.angle(lam)) / (2 * np.pi)), complex(lam)
+    h0 = np.asarray(orbit).reshape(-1, net.N).mean(0)
+    h = torch.tensor(h0, dtype=torch.float32, device=device).clone().detach().requires_grad_(True)
+    opt = torch.optim.Adam([h], lr=lr)
+    for _ in range(steps):
+        q = ((net.step(h.unsqueeze(0), u) - h.unsqueeze(0)) ** 2).sum()
+        opt.zero_grad(); q.backward(); opt.step()
+    return h.detach().cpu().numpy()
+
+
+def frequency_from_angle(net, orbit, n_in, device="cpu", mag_floor=1.02):
+    """Emergent oscillation frequency = angle/(2*pi) of the FUNDAMENTAL oscillatory
+    mode of the linearization at the limit cycle's central focus.
+
+    `orbit` is the autonomous free-run trajectory [T, N]; its mean seeds the search
+    for the unstable focus (see _cycle_center). A strongly nonlinear cycle produces
+    complex Jacobian eigenvalues at the fundamental angle AND its harmonics (2x, 3x
+    ...), so the fundamental is the UNSTABLE (|lambda|>mag_floor) complex eigenvalue
+    with the SMALLEST rotation angle -- selecting by magnitude instead grabs a
+    harmonic and returns ~2-3x the true frequency. Returns (freq, eigenvalue)."""
+    pt = _cycle_center(net, orbit, n_in, device=device)
+    u = torch.zeros(1, n_in, device=device)
+    ev = jacobian_eigs(net, pt, u, device)
+    ang = np.abs(np.angle(ev))
+    sel = (np.abs(ev) > mag_floor) & (ang > 1e-3)          # unstable, genuinely rotating
+    if sel.any():
+        idx = np.where(sel)[0][np.argmin(ang[sel])]         # fundamental = smallest angle
+    else:                                                   # no unstable focus: fall back
+        cplx = np.abs(ev.imag) > 1e-6
+        if not cplx.any():
+            return float("nan"), complex(ev[np.argmax(np.abs(ev))])
+        idx = np.where(cplx)[0][np.argmin(ang[cplx])]
+    return float(ang[idx] / (2 * np.pi)), complex(ev[idx])
 
 
 def xray_line_extent(net, task_fn, n_in, probe_range=(-2.5, 2.5), n_probe=41,

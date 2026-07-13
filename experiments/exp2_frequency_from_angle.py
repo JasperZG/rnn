@@ -14,7 +14,7 @@ def run(freqs, seeds, N, iters, device, out):
     rows = []
     for f in freqs:
         for seed in range(seeds):
-            net = models.build("rnn", 1, 1, N, seed, rotation_init=0.3)
+            net = models.build("rnn", 1, 1, N, seed, rotation_init=0.3).to(device)
             loss = train.train_network(net, tasks.make_oscillation, iters=iters,
                                        device=device, seed=seed, task_kwargs={"freq": f})
             if loss > 0.02: 
@@ -23,8 +23,8 @@ def run(freqs, seeds, N, iters, device, out):
                                            device=device, task_kwargs={"freq": f})
             free = H[0].detach().cpu().numpy()
             is_c, bfreq = structure.detect_limit_cycle(free)
-            seed_state = H[0, -1].detach().cpu().numpy()
-            afreq, lam = diagnostics.frequency_from_angle(net, seed_state, 1, device)
+            # frequency-from-angle at the cycle's central focus (post-transient orbit)
+            afreq, lam = diagnostics.frequency_from_angle(net, free[20:], 1, device)
             rows.append({"target": f, "seed": seed, "converged": True,
                          "behavioral_freq": bfreq, "angle_freq": afreq,
                          "lambda_mag": abs(lam)})

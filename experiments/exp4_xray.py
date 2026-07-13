@@ -25,7 +25,7 @@ def make_hold(B, T=60, rng=1.0, device="cpu", g=None):
 def run(seeds, N, iters, train_range, device, out):
     rows = []
     for seed in range(seeds):
-        net = models.build("rnn", 1, 1, N, seed)
+        net = models.build("rnn", 1, 1, N, seed).to(device)
         loss = train.train_network(net, make_hold, iters=iters, device=device,
                                    seed=seed, task_kwargs={"rng": train_range})
         if loss > 0.01:
