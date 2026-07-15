@@ -37,4 +37,10 @@ echo "=== exp4: structural x-ray ==="
 python experiments/exp4_xray.py --seeds 50 --N 64 --iters 3000 \
     --out results/exp4_xray.json
 
+echo "=== exp5: causal perturbation (targeted vs control dissociation) ==="
+python experiments/exp5_perturbation.py \
+    --tasks accumulation memory gated --seeds 50 --N 128 --iters 3000 \
+    --strengths 0.0 0.25 0.5 0.75 1.0 \
+    --out results/exp5_perturbation.json
+
 echo "=== done ==="
