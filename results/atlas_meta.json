@@ -1,0 +1,177 @@
+{
+ "sizes": [
+  4,
+  8,
+  16,
+  32,
+  64
+ ],
+ "tasks": [
+  "memory",
+  "accumulation",
+  "gated",
+  "oscillation"
+ ],
+ "cells": {
+  "accumulation_16": {
+   "task": "accumulation",
+   "N": 16,
+   "loss": 0.0005150263896211982,
+   "recovered": "line_attractor",
+   "predicted": "line_attractor",
+   "match": true
+  },
+  "accumulation_32": {
+   "task": "accumulation",
+   "N": 32,
+   "loss": 0.0003149238764308393,
+   "recovered": "line_attractor",
+   "predicted": "line_attractor",
+   "match": true
+  },
+  "accumulation_4": {
+   "task": "accumulation",
+   "N": 4,
+   "loss": 0.004940863698720932,
+   "recovered": "discrete_fixed_points",
+   "predicted": "line_attractor",
+   "match": false
+  },
+  "accumulation_64": {
+   "task": "accumulation",
+   "N": 64,
+   "loss": 0.004692620597779751,
+   "recovered": "discrete_fixed_points",
+   "predicted": "line_attractor",
+   "match": false
+  },
+  "accumulation_8": {
+   "task": "accumulation",
+   "N": 8,
+   "loss": 0.011433839797973633,
+   "recovered": "discrete_fixed_points",
+   "predicted": "line_attractor",
+   "match": false
+  },
+  "gated_16": {
+   "task": "gated",
+   "N": 16,
+   "loss": 0.004210597835481167,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "gated_32": {
+   "task": "gated",
+   "N": 32,
+   "loss": 0.0014316521119326353,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "gated_4": {
+   "task": "gated",
+   "N": 4,
+   "loss": 0.24123260378837585,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "gated_64": {
+   "task": "gated",
+   "N": 64,
+   "loss": 0.0005818837671540678,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "gated_8": {
+   "task": "gated",
+   "N": 8,
+   "loss": 0.02174498327076435,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "memory_16": {
+   "task": "memory",
+   "N": 16,
+   "loss": 2.4924373065005057e-05,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "memory_32": {
+   "task": "memory",
+   "N": 32,
+   "loss": 8.195728150894865e-05,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "memory_4": {
+   "task": "memory",
+   "N": 4,
+   "loss": 0.0017527020536363125,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "memory_64": {
+   "task": "memory",
+   "N": 64,
+   "loss": 2.9750075555057265e-05,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "memory_8": {
+   "task": "memory",
+   "N": 8,
+   "loss": 0.00016499469347763807,
+   "recovered": "discrete_fixed_points",
+   "predicted": "discrete_fixed_points",
+   "match": true
+  },
+  "oscillation_16": {
+   "task": "oscillation",
+   "N": 16,
+   "loss": 1.8642349459696561e-06,
+   "recovered": "limit_cycle",
+   "predicted": "limit_cycle",
+   "match": true
+  },
+  "oscillation_32": {
+   "task": "oscillation",
+   "N": 32,
+   "loss": 1.2086428569091368e-06,
+   "recovered": "limit_cycle",
+   "predicted": "limit_cycle",
+   "match": true
+  },
+  "oscillation_4": {
+   "task": "oscillation",
+   "N": 4,
+   "loss": 0.00046475903945975006,
+   "recovered": "limit_cycle",
+   "predicted": "limit_cycle",
+   "match": true
+  },
+  "oscillation_64": {
+   "task": "oscillation",
+   "N": 64,
+   "loss": 4.804431910088169e-07,
+   "recovered": "limit_cycle",
+   "predicted": "limit_cycle",
+   "match": true
+  },
+  "oscillation_8": {
+   "task": "oscillation",
+   "N": 8,
+   "loss": 8.541725401300937e-05,
+   "recovered": "limit_cycle",
+   "predicted": "limit_cycle",
+   "match": true
+  }
+ }
+}

@@ -1,0 +1,317 @@
+{
+  "description": "Cross-architecture structure recovery: GRU and LSTM fixed-point/limit-cycle analysis across 4 tasks x 3 seeds. LSTM analyzed in joint (h,c) state space. Confirms task structure is architecture-independent (Maheswaranathan 2019).",
+  "expected": {
+    "memory": "discrete_fixed_points",
+    "accumulation": "line_attractor",
+    "gated": "discrete_fixed_points",
+    "oscillation": "limit_cycle"
+  },
+  "summary_correct_over_converged": {
+    "gru_memory": {
+      "correct": 3,
+      "converged": 3
+    },
+    "gru_accumulation": {
+      "correct": 2,
+      "converged": 3
+    },
+    "gru_gated": {
+      "correct": 3,
+      "converged": 3
+    },
+    "gru_oscillation": {
+      "correct": 3,
+      "converged": 3
+    },
+    "lstm_memory": {
+      "correct": 3,
+      "converged": 3
+    },
+    "lstm_accumulation": {
+      "correct": 2,
+      "converged": 2
+    },
+    "lstm_gated": {
+      "correct": 3,
+      "converged": 3
+    },
+    "lstm_oscillation": {
+      "correct": 2,
+      "converged": 2
+    }
+  },
+  "rows": [
+    {
+      "arch": "gru",
+      "task": "memory",
+      "seed": 0,
+      "loss": 1e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 20
+    },
+    {
+      "arch": "gru",
+      "task": "memory",
+      "seed": 1,
+      "loss": 0.00018,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 12
+    },
+    {
+      "arch": "gru",
+      "task": "memory",
+      "seed": 2,
+      "loss": 5e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 16
+    },
+    {
+      "arch": "gru",
+      "task": "accumulation",
+      "seed": 0,
+      "loss": 6e-05,
+      "gate_pass": true,
+      "recovered": "line_attractor",
+      "predicted": "line_attractor",
+      "match": true,
+      "pc1_var": 0.989,
+      "frac_marginal": 1.0,
+      "npts": 12
+    },
+    {
+      "arch": "gru",
+      "task": "accumulation",
+      "seed": 1,
+      "loss": 0.00162,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "line_attractor",
+      "match": false,
+      "npts": 5
+    },
+    {
+      "arch": "gru",
+      "task": "accumulation",
+      "seed": 2,
+      "loss": 5e-05,
+      "gate_pass": true,
+      "recovered": "line_attractor",
+      "predicted": "line_attractor",
+      "match": true,
+      "pc1_var": 0.986,
+      "frac_marginal": 1.0,
+      "npts": 11
+    },
+    {
+      "arch": "gru",
+      "task": "gated",
+      "seed": 0,
+      "loss": 0.00019,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 108
+    },
+    {
+      "arch": "gru",
+      "task": "gated",
+      "seed": 1,
+      "loss": 0.0002,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 119
+    },
+    {
+      "arch": "gru",
+      "task": "gated",
+      "seed": 2,
+      "loss": 0.00021,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 114
+    },
+    {
+      "arch": "gru",
+      "task": "oscillation",
+      "seed": 0,
+      "loss": 0.0,
+      "gate_pass": true,
+      "recovered": "limit_cycle",
+      "predicted": "limit_cycle",
+      "match": true,
+      "freq": 0.1
+    },
+    {
+      "arch": "gru",
+      "task": "oscillation",
+      "seed": 1,
+      "loss": 2e-05,
+      "gate_pass": true,
+      "recovered": "limit_cycle",
+      "predicted": "limit_cycle",
+      "match": true,
+      "freq": 0.1
+    },
+    {
+      "arch": "gru",
+      "task": "oscillation",
+      "seed": 2,
+      "loss": 0.00258,
+      "gate_pass": true,
+      "recovered": "limit_cycle",
+      "predicted": "limit_cycle",
+      "match": true,
+      "freq": 0.1
+    },
+    {
+      "arch": "lstm",
+      "task": "memory",
+      "seed": 0,
+      "loss": 1e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 6
+    },
+    {
+      "arch": "lstm",
+      "task": "memory",
+      "seed": 1,
+      "loss": 6e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 9
+    },
+    {
+      "arch": "lstm",
+      "task": "memory",
+      "seed": 2,
+      "loss": 2e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 8
+    },
+    {
+      "arch": "lstm",
+      "task": "accumulation",
+      "seed": 0,
+      "loss": 0.03919,
+      "gate_pass": false,
+      "recovered": "discrete_fixed_points",
+      "predicted": "line_attractor",
+      "match": false,
+      "npts": 1
+    },
+    {
+      "arch": "lstm",
+      "task": "accumulation",
+      "seed": 1,
+      "loss": 7e-05,
+      "gate_pass": true,
+      "recovered": "line_attractor",
+      "predicted": "line_attractor",
+      "match": true,
+      "pc1_var": 0.973,
+      "frac_marginal": 1.0,
+      "npts": 12
+    },
+    {
+      "arch": "lstm",
+      "task": "accumulation",
+      "seed": 2,
+      "loss": 0.0001,
+      "gate_pass": true,
+      "recovered": "line_attractor",
+      "predicted": "line_attractor",
+      "match": true,
+      "pc1_var": 0.977,
+      "frac_marginal": 1.0,
+      "npts": 12
+    },
+    {
+      "arch": "lstm",
+      "task": "gated",
+      "seed": 0,
+      "loss": 7e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 4
+    },
+    {
+      "arch": "lstm",
+      "task": "gated",
+      "seed": 1,
+      "loss": 0.00024,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 4
+    },
+    {
+      "arch": "lstm",
+      "task": "gated",
+      "seed": 2,
+      "loss": 8e-05,
+      "gate_pass": true,
+      "recovered": "discrete_fixed_points",
+      "predicted": "discrete_fixed_points",
+      "match": true,
+      "npts": 3
+    },
+    {
+      "arch": "lstm",
+      "task": "oscillation",
+      "seed": 0,
+      "loss": 1e-05,
+      "gate_pass": true,
+      "recovered": "limit_cycle",
+      "predicted": "limit_cycle",
+      "match": true,
+      "freq": 0.053
+    },
+    {
+      "arch": "lstm",
+      "task": "oscillation",
+      "seed": 1,
+      "loss": 0.08621,
+      "gate_pass": false,
+      "recovered": "limit_cycle",
+      "predicted": "limit_cycle",
+      "match": false,
+      "freq": 0.1
+    },
+    {
+      "arch": "lstm",
+      "task": "oscillation",
+      "seed": 2,
+      "loss": 0.0,
+      "gate_pass": true,
+      "recovered": "limit_cycle",
+      "predicted": "limit_cycle",
+      "match": true,
+      "freq": 0.053
+    }
+  ]
+}

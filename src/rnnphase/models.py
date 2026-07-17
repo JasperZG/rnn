@@ -43,17 +43,53 @@ class GRUNet(nn.Module):
         self.rnn = nn.GRU(n_in, N, batch_first=True)
         self.Wout = nn.Linear(N, n_out, bias=False)
 
+    def step(self, h, u):
+        """One autonomous GRU-cell update on the hidden state, so the same
+        slow-point search and Jacobian analysis used for the vanilla RNN run
+        unchanged on the GRU (the hidden state IS the dynamical state here)."""
+        out, _ = self.rnn(u.unsqueeze(1), h.unsqueeze(0).contiguous())
+        return out.squeeze(1)
+
     def forward(self, x, h0=None):
         H, _ = self.rnn(x, None if h0 is None else h0.unsqueeze(0))
         return self.Wout(H), H
 
 
 class LSTMNet(nn.Module):
+    """The LSTM state is the pair (h, c). Fixed points must be sought in the
+    JOINT state z = [h; c] (dimension 2N), and the Jacobian is 2N x 2N. The
+    analysis helpers below expose that joint state so the same search/Jacobian
+    machinery applies; forward() (training) still reads the N-dim hidden h."""
     def __init__(self, n_in, n_out, N=128, seed=0):
-        super().__init__(); self.N = N
+        super().__init__(); self.N = N; self._Nh = N
         torch.manual_seed(seed)
         self.rnn = nn.LSTM(n_in, N, batch_first=True)
         self.Wout = nn.Linear(N, n_out, bias=False)
+
+    def set_joint(self, on):
+        """Toggle .N between the hidden dim (training/forward) and 2*N (joint
+        analysis). find_slow_points reshapes visited states with net.N, so this
+        must be True while searching the joint state and False otherwise."""
+        self.N = 2 * self._Nh if on else self._Nh
+
+    def step(self, z, u):
+        """One autonomous LSTM-cell update on the joint state z = [h; c]."""
+        Nh = self._Nh
+        h = z[:, :Nh].contiguous(); c = z[:, Nh:].contiguous()
+        out, (hn, cn) = self.rnn(u.unsqueeze(1),
+                                 (h.unsqueeze(0).contiguous(), c.unsqueeze(0).contiguous()))
+        return torch.cat([hn.squeeze(0), cn.squeeze(0)], dim=1)
+
+    def joint_states(self, x):
+        """Joint (h, c) trajectory over the input, for seeding the search."""
+        B = x.shape[0]; Nh = self._Nh
+        h = torch.zeros(1, B, Nh, device=x.device); c = torch.zeros(1, B, Nh, device=x.device)
+        Z = []
+        with torch.no_grad():
+            for t in range(x.shape[1]):
+                _, (h, c) = self.rnn(x[:, t:t + 1], (h, c))
+                Z.append(torch.cat([h.squeeze(0), c.squeeze(0)], dim=1))
+        return torch.stack(Z, 1)
 
     def forward(self, x, h0=None):
         H, _ = self.rnn(x)
