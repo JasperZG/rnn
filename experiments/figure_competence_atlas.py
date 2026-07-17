@@ -49,10 +49,10 @@ def main(a):
     fig.suptitle("Competence Atlas: predicted structure recovered across tasks and network sizes",
                  fontsize=11, y=0.985)
     leg = [Line2D([0], [0], marker='o', color='w', markerfacecolor=MATCH, markersize=8, label='recovered = predicted'),
-           Line2D([0], [0], marker='o', color='w', markerfacecolor=MISS, markersize=8, label='recovered \u2260 predicted (too few units)')]
+           Line2D([0], [0], marker='o', color='w', markerfacecolor=MISS, markersize=8, label='recovered \u2260 predicted')]
     fig.legend(handles=leg, loc="lower center", ncol=2, frameon=False, fontsize=8, bbox_to_anchor=(0.5, 0.012))
-    fig.text(0.5, -0.02, "grey = occupied state cloud (PC1\u2013PC2)   \u2022   colored = recovered slow points / limit cycle",
-             ha="center", fontsize=7.5, color="#555555")
+    fig.text(0.5, -0.02, "grey = occupied state cloud (PC1\u2013PC2)   \u2022   colored = recovered slow points / limit cycle   \u2022   accumulation needs enough units and clean convergence to build a line attractor",
+             ha="center", fontsize=7.0, color="#555555")
     fig.tight_layout(rect=[0.02, 0.07, 1, 0.965])
     fig.savefig(a.out, dpi=200, bbox_inches="tight")
     print("wrote", a.out)

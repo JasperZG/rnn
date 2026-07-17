@@ -113,9 +113,13 @@ The fixed-point search is the compute-heavy step; on a GPU it finishes in minute
 The GRU exposes `.step()` on its hidden state; the LSTM exposes `.step()` on the
 joint (h, c) state (dimension 2N) via `set_joint()`/`joint_states()`, so the same
 slow-point search and Jacobian analysis apply. Among networks that pass the
-convergence gate, the GRU and LSTM recover the SAME predicted dynamical structure
-as the vanilla RNN on every task (`results/xarch_results.json`) -- structure is a
-property of the task, not the architecture (Maheswaranathan et al., 2019).
+convergence gate, the GRU and LSTM recover the same predicted dynamical structure
+as the vanilla RNN in the large majority of runs (`results/xarch_results.json`):
+memory and gated match on every seed for both architectures; accumulation and
+oscillation match on every gate-passing seed except one apiece (a point-density
+threshold artifact in the slow-point search, not a different structure). This
+supports that structure is largely a property of the task, not the architecture
+(Maheswaranathan et al., 2019).
 
     python experiments/exp1_structure_prediction.py --task accumulation --archs rnn gru lstm --seeds 8
 
