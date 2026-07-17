@@ -78,3 +78,30 @@ payoff figure.
 
 Every experiment is fully determined by its random seed. The known-answer test
 must pass on every revision before any downstream result is trusted.
+
+## Figures
+
+All figures read from `results/` and write PNGs back into `results/`. Run the
+experiments first (or use the committed result JSONs), then:
+
+```bash
+# quantitative panels (read committed result JSONs -- no training needed)
+python experiments/figure_frequency.py      # -> results/fig_frequency.png
+python experiments/figure_xray.py           # -> results/fig_xray.png
+python experiments/figure_capacity.py       # -> results/fig_capacity.png
+python experiments/figure_perturbation.py   # -> results/fig_perturbation.png
+
+# signature figure -- the Weight-Space Competence Read-out (reads results/structures/*.npz)
+python experiments/figure_competence_manifold.py   # -> results/fig_competence_manifold.png
+
+# phase-portrait gallery (trains one representative net per task; GPU recommended)
+python experiments/figure_portraits.py --seeds 6 --iters 3000
+# -> results/fig_portraits.png  and  results/fig_portraits.npz (the projected data)
+```
+
+`figure_portraits.py` trains up to `--seeds` networks per task, keeps the one whose
+settled states are cleanest in the top-2 PC plane, recovers its stable fixed points
+(or autonomous limit-cycle orbit), and colors each continuous attractor by the task
+variable it stores. A task that never reaches its convergence gate is skipped with a
+warning rather than plotted, so no panel misrepresents a network that did not learn.
+The fixed-point search is the compute-heavy step; on a GPU it finishes in minutes.
