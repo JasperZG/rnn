@@ -38,11 +38,11 @@ def train_representative(task, seeds, iters, device):
     fn, n_in, n_out = tasks.TASKS[task]
     best = None
     for seed in range(seeds):
-        net = models.build("rnn", n_in, n_out, 128, seed, rotation_init=ROT.get(task, 0.0))
+        net = models.build("rnn", n_in, n_out, 128, seed, rotation_init=ROT.get(task, 0.0)).to(device)
         loss = train.train_network(net, fn, iters=iters, device=device, seed=seed)
         if not train.passes_gate(loss, GATE[task]):
             continue
-        g = torch.Generator(device="cpu").manual_seed(777)
+        g = torch.Generator(device=device).manual_seed(777)
         x, y, mask = fn(160, device=device, g=g)[:3]
         with torch.no_grad():
             out, H = net(x)
