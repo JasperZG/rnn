@@ -105,3 +105,26 @@ settled states are cleanest in the top-2 PC plane, recovers its stable fixed poi
 variable it stores. A task that never reaches its convergence gate is skipped with a
 warning rather than plotted, so no panel misrepresents a network that did not learn.
 The fixed-point search is the compute-heavy step; on a GPU it finishes in minutes.
+
+
+## Cross-architecture structure recovery
+
+`experiments/exp1_structure_prediction.py` now analyzes all three architectures.
+The GRU exposes `.step()` on its hidden state; the LSTM exposes `.step()` on the
+joint (h, c) state (dimension 2N) via `set_joint()`/`joint_states()`, so the same
+slow-point search and Jacobian analysis apply. Among networks that pass the
+convergence gate, the GRU and LSTM recover the SAME predicted dynamical structure
+as the vanilla RNN on every task (`results/xarch_results.json`) -- structure is a
+property of the task, not the architecture (Maheswaranathan et al., 2019).
+
+    python experiments/exp1_structure_prediction.py --task accumulation --archs rnn gru lstm --seeds 8
+
+## Competence Atlas
+
+`experiments/figure_competence_atlas.py` renders the dense matrix figure
+(rows = tasks, columns = network size) from the committed sweep bundle
+(`results/atlas_data.npz`, `results/atlas_meta.json`); no training required.
+Each cell shows the occupied state cloud with the recovered structure overlaid,
+colored by whether it matches the a-priori prediction.
+
+    python experiments/figure_competence_atlas.py
