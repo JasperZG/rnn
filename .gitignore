@@ -8,3 +8,11 @@ results/verify_*.json
 
 # local backup of pre-fix (buggy) results, not for publication
 results_v1_backup/
+results/**/*.npz
+results/**/*.tar.gz
+*.tar.gz
+osc_*.npz
+fig_portraits.npz
+geo_sweep/
+orbits/
+accum_exp/
