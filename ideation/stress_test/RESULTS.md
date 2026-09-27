@@ -421,3 +421,53 @@ structural gate was never exercised. The single observed Λ₂ = 1.003 network
 (seed 18) supports the gate's rationale, but the gate's sensitivity to
 pathological networks needs a much larger sample: with a prevalence of about
 1/30, 30 networks meet one only ~64% of the time.
+
+---
+
+# Diagnostic: why do width-512 hold-trained LSTMs forecast poorly? (September 27, 2026)
+
+*Exploratory. The networks are from the inspected repair set (Amendment 10)
+plus two good references. Script: `diag_hold_lstm.py`. Data:
+`results/diag_hold_lstm.json`.*
+
+Estimator: the corrected v2. "History divergence" is the median |Δ output|
+between two input histories that end at the same decoded held value (direct
+load vs overshoot-and-return), followed by zero input.
+
+| network | forecast error | near-unit modes (λ > 0.99, mid-manifold) | λ₁ / λ₂ | history divergence at t = 0 / 1000 | 1-D closure error at t = 0 / 1000 |
+|---|---|---|---|---|---|
+| hold LSTM-128 s530 (good) | 0.02 | 1 | 1.001 / 0.63 | 0.011 / 0.012 | 0.009 / 0.012 |
+| accum LSTM-512 s1000 (good) | 0.004 | 1 | 1.000 / 0.60 | 0.011 / 0.0001 | 0.005 / 0.00002 |
+| hold LSTM-512 s1002 | 0.23 | 1 | 0.999 / 0.69 | **0.088 / 0.065** | **0.080 / 0.057** |
+| hold LSTM-512 s1011 | 0.23 | 1 | 1.001 / 0.65 | **0.104 / 0.001** | **0.094 / 0.001** |
+| hold LSTM-512 s1007 | 0.03 | 1 | 1.002 / 0.60 | **0.054 / 0.002** | **0.038 / 0.002** |
+
+**Classification.**
+
+1. **Construction / design: ruled out.**
+   - Identical training (4000 iterations at 2e-3 on GPU); the worst network
+     trained best (loss 1e-4).
+   - The full (h, c) state is used throughout, the decoder convention is the
+     same, and the manifold covers the test range.
+2. **Numerical reduction: not the cause.**
+   - The manifold converges.
+   - The on-manifold spectrum is one-dimensional, with the same gap as the
+     good networks.
+   - Flow folds cover only 1–4% of the manifold.
+3. **Learned structure: yes, as a closure failure off the manifold.**
+   - On the manifold, the bad networks are as one-dimensional as the good
+     ones.
+   - After loading, they carry 5–10× more history in slowly decaying
+     transients *off* the manifold. The 1-D model cannot represent these
+     (closure error ≈ the divergence itself).
+   - In s1002 the extra history persists for 1000 steps.
+   - Likely mechanism: gate-saturated regions visited during loading, which
+     the local Jacobian at manifold points does not capture. This is not yet
+     tested directly.
+
+**Consequence for production.**
+- The preregistered closure test runs only for driven (accumulation)
+  networks, so this failure mode is not flagged for hold networks by any
+  frozen diagnostic.
+- Adding a hold-network closure diagnostic would need its own amendment and a
+  prospective test. It is recorded here as a limitation and an open item.
