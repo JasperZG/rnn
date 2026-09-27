@@ -614,3 +614,71 @@ L-BFGS iterations. Reports the change in T̂ and in policy-B decisions.
 separate feasibility project and is not part of this run.
 
 Final count for vanilla RNN N = 512 at 8000 / 5e-4 (dev seeds 512–515, both tasks): see `logs` on the production PC; recorded at freeze time as 6/6, completed as 8/8.
+
+## Amendment 9: construction error found during production; corrected; affected outputs invalidated and rerun
+
+*Recorded September 27, 2026, after 65 factorial networks had been produced.
+Production was paused. The outputs were preserved and are not deleted.*
+
+**Trigger.** The first completed cell (hold, LSTM, N = 512) had poor
+forecasts: per-network median |log err| had a median of 0.18. Before
+interpreting that, we checked whether it was a construction error.
+
+**Errors found in `hf_exact_FROZEN.py`.** Both are implementation deviations
+from the specified method.
+
+1. **Unchecked convergence.** The invariance equation `f(h)−h−v·t = 0` was
+   solved with a *fixed* 3000 L-BFGS iterations. Every returned point was then
+   used as a manifold point, with no check that it solved the equation.
+   - Points that are not solutions are not on the invariant manifold.
+   - Hold/LSTM/512, seed 1011: at 3000 iterations, 133/280 points had
+     tangent-invariance residual > 1e-2 (0.15–0.24), against ~1e-7 for
+     converged points. At 20000 iterations, 49/280 remained unconverged.
+2. **Inverting a non-invertible flow.** The 10-step drift flow was inverted
+   with `np.interp(a, x, grid)`, which requires `x` to be increasing. The code
+   computed `flow_monotone` but ignored it.
+   - When the flow folds, the binary search can return wrong displacements
+     anywhere in the table, not only near the fold.
+   - The flow was non-monotone in 56/60 completed hold/LSTM/512 networks.
+
+**Correction (`hf_exact_v2.py`).**
+- The invariance solve continues in rounds of 3000 iterations until every
+  point has residual ≤ 1e-2, up to 10 rounds.
+- Points that are still unconverged are dropped. The largest contiguous
+  converged block is kept.
+- The drift flow is inverted only on its monotone range around s = 0. The
+  forecast domain is restricted accordingly.
+- The naive estimator NS keeps its definition (no invariance solve, no
+  convergence check). It shares the corrected inversion.
+
+**Verification that the correction is a no-op where the old code was
+valid.** On all 27 confirmation networks (seeds 10–14, every architecture),
+v2 forecasts are **bit-identical** to the frozen estimator's. Every point
+converged within 3000 iterations and every flow was monotone. All earlier
+confirmatory results are therefore unaffected.
+
+**Does the error explain the poor hold/LSTM/512 forecasts? No.** On the
+three production networks inspected for the bug hunt:
+
+| seed | frozen median \|log err\| | v2 median \|log err\| | notes |
+|---|---|---|---|
+| 1002 | 0.218 | 0.234 | 0 points dropped; all converged |
+| 1007 | 0.032 | 0.032 | 0 points dropped |
+| 1011 | 0.190 | 0.234 | 49 points dropped |
+
+In seed 1002 the drift flow stays non-monotone even on a fully converged
+manifold. In parts of the state range, the per-step drift is larger than the
+manifold spacing, so those regions are not slow. The poor hold/LSTM/512
+result is a property of the networks, not of the construction. It is
+reported as a finding and not tuned further.
+
+**Handling.**
+- The 65 factorial outputs produced with the frozen estimator are moved to
+  `results/prod_v1_invalid/` (with their weights) and marked invalid because
+  of errors 1–2.
+- Every production network is run with `hf_exact_v2.py`. The completed ones
+  are rerun from scratch with the same seeds.
+- The three bug-hunt networks (1002, 1007, 1011) are rerun like all the
+  others. Their outcomes were inspected only to diagnose the construction.
+- Pass criteria, cohorts and every other Amendment 8 setting are unchanged.
+- New hashes: `results/FROZEN_PROD_V2_SHA256.txt`.

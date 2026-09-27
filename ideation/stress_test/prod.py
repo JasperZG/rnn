@@ -100,23 +100,30 @@ def _patched(X, fn):
 
 
 def estimators(X, m, arch):
-    """Frozen estimator E (capturing its manifold points) and naive NS."""
+    """Estimator E (capturing its final, converged manifold points) and naive NS
+    (same pipeline with neither the invariance solve nor the convergence check)."""
     cap = {}
+    orig_cb = X.converged_block
 
-    def capture(orig):
-        def f(fn, dec, S):
-            H, r0, r1 = orig(fn, dec, S)
-            cap["H"] = H
-            return H, r0, r1
-        return f
-    with _patched(X, capture):
+    def cb_capture(fn, dec, H, tol):
+        idx, nd, cmap = orig_cb(fn, dec, H, tol)
+        cap["H"] = H[idx]
+        return idx, nd, cmap
+    X.converged_block = cb_capture
+    try:
         t0 = time.time()
         est = X.AccumulationExact(m, arch)
         t_e = time.time() - t0
-    with _patched(X, lambda orig: (lambda fn, dec, S: (S, float("nan"), float("nan")))):
-        t0 = time.time()
-        naive = X.AccumulationExact(m, arch)
-        t_n = time.time() - t0
+    finally:
+        X.converged_block = orig_cb
+    X.converged_block = lambda fn, dec, H, tol: (__import__("torch").arange(len(H)), 0, "")
+    try:
+        with _patched(X, lambda orig: (lambda fn, dec, S, **kw: (S, float("nan"), float("nan")))):
+            t0 = time.time()
+            naive = X.AccumulationExact(m, arch)
+            t_n = time.time() - t0
+    finally:
+        X.converged_block = orig_cb
     return est, naive, cap["H"], t_e, t_n
 
 
@@ -140,7 +147,7 @@ def exact_residual(X, m, arch, H):
 
 def tight_estimator(X, m, arch):
     """Tighter numerics: 2x manifold points, 2x input grid, 10000 L-BFGS iterations."""
-    with _patched(X, lambda orig: (lambda fn, dec, S: orig(fn, dec, S, iters=10000))):
+    with _patched(X, lambda orig: (lambda fn, dec, S, **kw: orig(fn, dec, S, iters=10000))):
         return X.AccumulationExact(m, arch, n_pts=801, n_u=113)
 
 
@@ -281,7 +288,7 @@ def worker(job):
     import torch
     from hf_tasks import TASKS
     import hf_core as C
-    import hf_exact_FROZEN as X
+    import hf_exact_v2 as X            # Amendment 9: corrected construction
     tag = f"{task_name}_{arch}_N{N}_s{seed}"
     rdir = os.path.join(HERE, "results", "prod", name)
     ndir = os.path.join(HERE, "nets", "prod", name)
