@@ -1,0 +1,10 @@
+# Keep code and records byte-identical across platforms (frozen-file hashes).
+*.py   text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
+*.sh   text eol=lf
+*.yaml text eol=lf
+*.npz  binary
+*.pt   binary
+*.png  binary
