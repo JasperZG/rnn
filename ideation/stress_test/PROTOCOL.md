@@ -682,3 +682,51 @@ reported as a finding and not tuned further.
   others. Their outcomes were inspected only to diagnose the construction.
 - Pass criteria, cohorts and every other Amendment 8 setting are unchanged.
 - New hashes: `results/FROZEN_PROD_V2_SHA256.txt`.
+
+## Amendment 10: inspected networks become repair-validation cases; fresh replacements for the confirmatory sample
+
+*Recorded before any replacement network was trained or scored, and before
+any corrected (v2) result for the inspected networks was examined.*
+
+**Rationale.** The 65 factorial networks produced before Amendment 9 had
+their long-horizon outcomes inspected. Their original outputs were invalid
+for objective reasons (Amendment 9), but the networks themselves are no
+longer untouched. Their corrected reruns are therefore **repair-validation
+cases** and never count toward the confirmatory sample.
+
+**Buckets.**
+
+| bucket | location | contents |
+|---|---|---|
+| invalid v1 outputs (preserved) | `results/prod_v1_invalid/` | the original outputs, with weights |
+| repair validation | `results/prod/v2_repair/` | corrected reruns of the 65 inspected networks, same seeds; the set is listed in `results/REPAIR_SET.json` |
+| confirmatory | `results/prod/{factorial,deep128,osc}/` | only networks whose outcomes were never inspected before the corrected estimator was frozen |
+
+The repair-validation bucket is reported separately (v1 vs v2 per network)
+and excluded from every criterion.
+
+**The inspected set (65).**
+- accumulation / LSTM / N = 512: seeds 1000, 1001, 1002, 1004, 1005, 1012;
+- hold / LSTM / N = 512: seeds 1000–1059 except 1053.
+
+**Replacement rule (factorial).** Within each cell, every base attempt in the
+inspected set is replaced one-for-one, in seed order, by a fresh seed from
+1100 upward. As a result:
+
+| cell | attempts |
+|---|---|
+| hold / LSTM / 512 | seed 1053 + seeds 1100–1158 |
+| accumulation / LSTM / 512 | 54 original seeds + seeds 1100–1105 |
+| all other cells | unchanged |
+
+The 50-eligible target and the top-up rule (seeds 1060–1079, blocks of 5)
+count only untouched networks.
+
+**Order.** factorial → deep128 → osc (confirmatory), then v2_repair, then the
+analysis. The confirmatory cohorts have priority.
+
+The one v2 result produced before this amendment
+(`hold_lstm_N512_s1004`, a repair-set network) is moved to
+`results/prod/v2_repair/`.
+
+Hashes: `results/FROZEN_PROD_V3_SHA256.txt`.

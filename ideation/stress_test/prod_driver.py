@@ -1,14 +1,18 @@
-"""Runs the full Amendment 8 production plan end to end (resumable; rerun to continue).
+"""Runs the full production plan end to end (Amendments 8-10; resumable; rerun to continue).
 
     python prod_driver.py --workers 12 --threads 2
 
-Order (plan priority): factorial -> deep128 -> osc, each with its preregistered
-top-up rule, then aggregation and the preregistered analysis. Progress is written
-to logs/prod_driver.log and results/prod/DRIVER_STATUS.json.
-On Windows the process asks the OS not to sleep while it runs.
+Order: factorial -> deep128 -> osc (confirmatory, untouched networks only),
+then v2_repair (the 65 networks whose outcomes were inspected before the
+Amendment 9 correction; reported separately, never counted as confirmatory),
+then aggregation and the preregistered analysis.
+
+Amendment 10 replacement rule (factorial): every attempt in the repair set is
+replaced one-for-one, in seed order within its cell, by a fresh seed from 1100
+upward. The eligible-network target (50 per cell) and the top-up rule (seeds
+1060-1079, blocks of 5) count only untouched networks.
 """
 import argparse
-import glob
 import json
 import os
 import subprocess
@@ -17,6 +21,8 @@ import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PY = sys.executable
+REPAIR = [tuple(x) for x in json.load(open(os.path.join(HERE, "results", "REPAIR_SET.json")))]
+REPAIR_TAGS = {f"{t}_{a}_N{w}_s{s}" for t, a, w, s in REPAIR}
 
 PLAN = [
     # cohort, tasks, archs, widths, base seeds, top-up seeds, eligible target per cell
@@ -27,13 +33,13 @@ PLAN = [
     ("osc", ["oscillation"], ["rnn", "gru", "lstm"], [32, 128],
      list(range(3000, 3036)), list(range(3036, 3048)), 30),
 ]
+REPLACEMENT_START = 1100
 
 
 def keep_awake():
     if os.name == "nt":
         import ctypes
-        ES_CONTINUOUS, ES_SYSTEM_REQUIRED = 0x80000000, 0x00000001
-        ctypes.windll.kernel32.SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED)
+        ctypes.windll.kernel32.SetThreadExecutionState(0x80000000 | 0x00000001)
 
 
 def log(msg):
@@ -51,20 +57,32 @@ def status(**kw):
     json.dump(s, open(p, "w"), indent=1)
 
 
-def run(cohort, tasks, archs, widths, seeds, workers, threads):
-    cmd = [PY, "prod.py", "run", "--name", cohort, "--tasks", *tasks, "--archs", *archs,
-           "--widths", *map(str, widths), "--seeds", *map(str, seeds),
+def run_jobs(cohort, jobs, workers, threads):
+    if not jobs:
+        return
+    jf = os.path.join(HERE, "results", "prod", f"_jobs_{cohort}.json")
+    json.dump(jobs, open(jf, "w"))
+    log(f"RUN {cohort}: {len(jobs)} jobs")
+    cmd = [PY, "prod.py", "run", "--name", cohort, "--jobs-file", jf,
            "--workers", str(workers), "--threads", str(threads)]
-    log(f"RUN {cohort}: {len(tasks) * len(archs) * len(widths) * len(seeds)} jobs")
     with open(os.path.join(HERE, "logs", f"prod_{cohort}.log"), "a") as f:
         r = subprocess.run(cmd, cwd=HERE, stdout=f, stderr=subprocess.STDOUT)
     log(f"RUN {cohort} exited with code {r.returncode}")
 
 
-def eligible(cohort, task, arch, N, seeds):
+def cell_seeds(cohort, t, a, w, base):
+    """Base attempts for a cell, with repair-set attempts replaced one-for-one."""
+    if cohort != "factorial":
+        return list(base)
+    keep = [s for s in base if f"{t}_{a}_N{w}_s{s}" not in REPAIR_TAGS]
+    n_rep = len(base) - len(keep)
+    return keep + list(range(REPLACEMENT_START, REPLACEMENT_START + n_rep))
+
+
+def eligible(cohort, t, a, w, seeds):
     n = 0
     for s in seeds:
-        p = os.path.join(HERE, "results", "prod", cohort, f"{task}_{arch}_N{N}_s{s}.json")
+        p = os.path.join(HERE, "results", "prod", cohort, f"{t}_{a}_N{w}_s{s}.json")
         if os.path.exists(p):
             r = json.load(open(p))
             n += bool(r.get("gate_pass")) and r["status"] == "ok"
@@ -77,23 +95,21 @@ def main(workers, threads):
     log(f"driver start: workers={workers} threads={threads}")
     for cohort, tasks, archs, widths, base, topup, target in PLAN:
         status(phase=cohort, step="base")
-        run(cohort, tasks, archs, widths, base, workers, threads)
-        # preregistered top-up: per cell, add seeds in blocks of 5 until the target
-        # number of eligible (gate-passing) networks is reached or the cap is hit
-        for t in tasks:
-            for a in archs:
-                for w in widths:
-                    used = list(base)
-                    rest = list(topup)
-                    while eligible(cohort, t, a, w, used) < target and rest:
-                        block, rest = rest[:5], rest[5:]
-                        used += block
-                        status(phase=cohort, step=f"topup {t}_{a}_N{w}")
-                        run(cohort, [t], [a], [w], block, workers, threads)
-                    log(f"{cohort} {t}_{a}_N{w}: eligible={eligible(cohort, t, a, w, used)} "
-                        f"attempted={len(used)}")
+        cells = [(t, a, w) for t in tasks for a in archs for w in widths]
+        seeds = {c: cell_seeds(cohort, *c, base) for c in cells}
+        run_jobs(cohort, [[t, a, w, s] for (t, a, w) in cells for s in seeds[(t, a, w)]], workers, threads)
+        for (t, a, w) in cells:
+            used, rest = list(seeds[(t, a, w)]), list(topup)
+            while eligible(cohort, t, a, w, used) < target and rest:
+                block, rest = rest[:5], rest[5:]
+                used += block
+                status(phase=cohort, step=f"topup {t}_{a}_N{w}")
+                run_jobs(cohort, [[t, a, w, s] for s in block], workers, threads)
+            log(f"{cohort} {t}_{a}_N{w}: eligible={eligible(cohort, t, a, w, used)} attempted={len(used)}")
         subprocess.run([PY, "prod.py", "aggregate", "--name", cohort], cwd=HERE)
         status(phase=cohort, step="done")
+    status(phase="v2_repair", step="running")
+    run_jobs("v2_repair", [list(r) for r in REPAIR], workers, threads)
     status(phase="analysis", step="running")
     with open(os.path.join(HERE, "logs", "prod_analysis.log"), "w") as f:
         subprocess.run([PY, "analyze_prod.py"], cwd=HERE, stdout=f, stderr=subprocess.STDOUT)

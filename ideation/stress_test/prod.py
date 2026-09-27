@@ -400,6 +400,7 @@ if __name__ == "__main__":
     ap.add_argument("--threads", type=int, default=2, help="CPU threads per worker")
     ap.add_argument("--device", default="auto")
     ap.add_argument("--gpu-slots", type=int, default=3, help="max concurrent GPU jobs")
+    ap.add_argument("--jobs-file", default=None, help="JSON list of [task, arch, N, seed]; overrides the grid")
     a = ap.parse_args()
     # pin BLAS/OpenMP threads per worker (inherited by spawned workers) to avoid oversubscription
     for v in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
@@ -409,6 +410,11 @@ if __name__ == "__main__":
         sys.exit()
     if a.cmd == "bench":
         a.name, a.trials = "bench", 256
-    jobs = make_jobs(a.name, a.tasks, a.archs, a.widths, parse_seeds(a.seeds), a.trials, a.device, a.threads)
+    if a.jobs_file:
+        spec = json.load(open(a.jobs_file))
+        jobs = [(a.name, t, ar, int(w), int(sd), a.trials, a.device, a.threads) for t, ar, w, sd in spec]
+        jobs.sort(key=lambda j: -(j[3] * (2 if j[2] == "lstm" else 1)))
+    else:
+        jobs = make_jobs(a.name, a.tasks, a.archs, a.widths, parse_seeds(a.seeds), a.trials, a.device, a.threads)
     print(f"{len(jobs)} jobs, {a.workers} workers, device={a.device}", flush=True)
     run_jobs(jobs, a.workers, a.gpu_slots)
