@@ -154,31 +154,4 @@ class Oscillation(Task):
         return (u[:, 0] != 0).long(), u[:, :0]
 
 
-class Hold(Task):
-    """Analog hold, trained as its own task: a value z0 is loaded as 10 equal
-    increments, then must be held with zero input. Same declared update as
-    accumulation (F = z + u); only the training/test input distribution differs.
-    Error is scored from t >= 10 (after loading)."""
-    name, k, n_in, eps, T_train = "hold", 1, 1, 0.25, 50
-    load_steps, zmax = 10, 1.5
-
-    def F(self, z, u):
-        return z + u
-
-    def JF(self, z, u):
-        return torch.ones(z.shape[0], 1, 1)
-
-    def inputs(self, B, T, g, broad=False):
-        zmax = 2.5 if broad else self.zmax
-        z0 = (torch.rand(B, generator=g) * 2 - 1) * zmax
-        u = torch.zeros(B, T, 1)
-        u[:, :self.load_steps, 0] = (z0 / self.load_steps)[:, None]
-        return u
-
-    def eval_mask(self, u):
-        m = torch.ones(u.shape[0], u.shape[1])
-        m[:, :self.load_steps] = 0
-        return m
-
-
-TASKS = {c.name: c for c in (FlipFlop, Accumulation, CtxInt, Oscillation, Hold)}
+TASKS = {c.name: c for c in (FlipFlop, Accumulation, CtxInt, Oscillation)}

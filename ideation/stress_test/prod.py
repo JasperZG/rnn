@@ -1,27 +1,24 @@
-"""Parallel production runner: train -> gate -> extract -> forecast -> score, one
-result file per network. Resumable (skips networks whose result already exists).
+"""Production runner (Amendment 8). One result file per network; resumable.
 
-    # timing benchmark: one network per architecture x width
     python prod.py bench --widths 32 128 512 --workers 3
+    python prod.py run --name factorial --tasks hold accumulation --archs rnn gru lstm \
+        --widths 32 128 512 --seeds 1000-1059 --workers 8
+    python prod.py aggregate --name factorial
 
-    # development / production cohort (seeds and sizes come from the protocol)
-    python prod.py run --name dev512 --tasks accumulation --archs rnn gru lstm \
-        --widths 512 --seeds 500 501 502 --trials 1024 --workers 8
-
-    # oscillation cohort
-    python prod.py run --name osc --tasks oscillation --archs rnn gru lstm --widths 32 128 --seeds 600 601
-
-    # pool per-network results into one file for decision3.py
-    python prod.py aggregate --name dev512
-
-Training uses CUDA when available (--device auto). Manifold extraction always runs
-in float64 on the CPU: consumer GPUs have very slow float64.
-Outputs: results/prod/<name>/<tag>.json (+ .npz), weights in nets/prod/<name>/.
+Per network (hold / accumulation):
+  train (GPU) -> training-horizon gate -> frozen estimator E (CPU float64) ->
+  naive slow-point estimator NS -> short-probe regression R -> extrapolation B1/B2
+  -> trial banks (hold nets: 1024 hold trials; accumulation nets: 1024 normal +
+  1024 weaker-input trials) -> native long rollout (T=5000) -> predictions,
+  forecast safety margins r_H, validity diagnostics, closure test (driven nets),
+  tight-numerics re-extraction for the preselected 10% subset (seed % 10 == 3).
+Oscillation networks: E (phase slip) + B1/B2 on the autonomous pulse response.
+Extraction always runs in float64 on the CPU (consumer GPUs have slow float64).
 """
 import argparse
 import glob
+import hashlib
 import json
-import math
 import multiprocessing as mp
 import os
 import sys
@@ -32,7 +29,21 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HS = (250, 500, 1000, 2000)
-SCEN = ("hold", "x1", "x0.5")
+SCEN = ("hold", "x1", "x0.5")          # scenario index used in all result files
+T_TEST = 5000
+
+
+def train_cfg(task_name, arch, N):
+    """Training hyperparameters (iterations, learning rate), fixed in Amendment 8."""
+    if os.environ.get("HF_ITERS_OVERRIDE"):          # smoke tests only; recorded in every result
+        return int(os.environ["HF_ITERS_OVERRIDE"]), float(os.environ.get("HF_LR_OVERRIDE", 2e-3))
+    if N >= 512:
+        return 4000, 5e-4
+    return 4000, 2e-3
+
+
+def conv_subset(seed):
+    return seed % 10 == 3
 
 
 def _setup(threads):
@@ -41,94 +52,193 @@ def _setup(threads):
     sys.path.insert(0, HERE)
 
 
-def naive_estimator(X, m, arch):
-    """Same pipeline as the frozen estimator but WITHOUT the invariance solve
-    (manifold = constrained minimum-speed points): the earlier, biased method."""
+def _patched(X, fn):
+    """Temporarily replace X.invariant_manifold (the frozen module looks it up by name)."""
     orig = X.invariant_manifold
-    X.invariant_manifold = lambda f, dec, S: (S, float("nan"), float("nan"))
-    try:
-        return X.AccumulationExact(m, arch)
-    finally:
-        X.invariant_manifold = orig
+
+    class Ctx:
+        def __enter__(self):
+            X.invariant_manifold = fn(orig)
+
+        def __exit__(self, *a):
+            X.invariant_manifold = orig
+    return Ctx()
 
 
-def run_accumulation(task, m, arch, seed, trials, device, C, X, rec, out_npz):
+def estimators(X, m, arch):
+    """Frozen estimator E (capturing its manifold points) and naive NS."""
+    cap = {}
+
+    def capture(orig):
+        def f(fn, dec, S):
+            H, r0, r1 = orig(fn, dec, S)
+            cap["H"] = H
+            return H, r0, r1
+        return f
+    with _patched(X, capture):
+        t0 = time.time()
+        est = X.AccumulationExact(m, arch)
+        t_e = time.time() - t0
+    with _patched(X, lambda orig: (lambda fn, dec, S: (S, float("nan"), float("nan")))):
+        t0 = time.time()
+        naive = X.AccumulationExact(m, arch)
+        t_n = time.time() - t0
+    return est, naive, cap["H"], t_e, t_n
+
+
+def exact_residual(X, m, arch, H):
+    """Exact discrete invariance residual f(h(s)) - h(s+v(s)) at held-out manifold points."""
+    import torch
+    from scipy.interpolate import CubicSpline
+    f, dec, dim = X.stepper(m, arch)
+    with torch.no_grad():
+        s = dec(H)[:, 0].numpy()
+        Hn = H.numpy()
+        fi, ho = np.arange(0, len(s), 2), np.arange(1, len(s) - 1, 2)
+        spl = CubicSpline(s[fi], Hn[fi], axis=0)
+        Fh = f(torch.as_tensor(Hn[ho]), torch.zeros(len(ho), 1, dtype=torch.float64))
+        v = dec(Fh)[:, 0].numpy() - s[ho]
+        res = np.linalg.norm(Fh.numpy() - spl(s[ho] + v), axis=1)
+    m.float()
+    return dict(exact_resid_median=float(np.median(res)), exact_resid_max=float(res.max()),
+                exact_resid_p90=float(np.percentile(res, 90)))
+
+
+def tight_estimator(X, m, arch):
+    """Tighter numerics: 2x manifold points, 2x input grid, 10000 L-BFGS iterations."""
+    with _patched(X, lambda orig: (lambda fn, dec, S: orig(fn, dec, S, iters=10000))):
+        return X.AccumulationExact(m, arch, n_pts=801, n_u=113)
+
+
+def closure_test(task, m, est, seed, device, C):
+    """Paired histories reaching (nearly) the same decoded state, then an identical
+    continuation: does the network diverge as the 1-D reduced model says?"""
+    import torch
+    g = torch.Generator().manual_seed(4000 + seed)
+    B, L1, L2 = 2048, 30, 20
+    hist = task.inputs(B, L1, g)
+    with torch.no_grad():
+        m.to(device)
+        z30 = m(hist.to(device))[0][:, -1, 0].cpu().numpy()
+        m.to("cpu")
+    order = np.argsort(z30)
+    pairs = [(order[i], order[i + 1]) for i in range(0, B - 1, 2)
+             if abs(z30[order[i + 1]] - z30[order[i]]) < 0.005]
+    if len(pairs) < 20:
+        return dict(closure_pairs=len(pairs))
+    a = np.array([p[0] for p in pairs])
+    b = np.array([p[1] for p in pairs])
+    cont = task.inputs(len(pairs), L2, g)
+    ua = torch.cat([hist[a], cont], 1)
+    ub = torch.cat([hist[b], cont], 1)
+    with torch.no_grad():
+        m.to(device)
+        ya = m(ua.to(device))[0][:, -1, 0].cpu().numpy()
+        yb = m(ub.to(device))[0][:, -1, 0].cpu().numpy()
+        m.to("cpu")
+    pa = est.predict(ua)[:, -1, 0].numpy()
+    pb = est.predict(ub)[:, -1, 0].numpy()
+    err = np.abs((ya - yb) - (pa - pb))
+    drift = np.abs(ya - (z30[a] + cont.sum(1)[:, 0].numpy()))
+    return dict(closure_pairs=len(pairs), closure_err_median=float(np.median(err)),
+                closure_err_p95=float(np.percentile(err, 95)),
+                closure_ref_20step_error_median=float(np.median(drift)))
+
+
+def scenarios(task, trials, seed):
     import torch
     from run_stage2 import shifted_inputs
-    from run_stage3 import hold_inputs
-    t0 = time.time()
-    est = X.AccumulationExact(m, arch)
-    rec["time_extract_s"] = time.time() - t0
-    rec["diag"] = est.diag
-    t0 = time.time()
-    naive = naive_estimator(X, m, arch)
-    rec["time_extract_naive_s"] = time.time() - t0
+    out = []
+    if task.name == "hold":
+        g = torch.Generator().manual_seed(9000 + seed)
+        u = task.inputs(trials, T_TEST, g)
+        out.append((0, u, task.eval_mask(u)))
+    else:
+        g = torch.Generator().manual_seed(9100 + seed)
+        u = task.inputs(trials, T_TEST, g)
+        out.append((1, u, task.eval_mask(u)))
+        g = torch.Generator().manual_seed(9200 + seed)
+        u = shifted_inputs(task, trials, T_TEST, g, 0.5)
+        out.append((2, u, task.eval_mask(u)))
+    return out
+
+
+def run_line(task, m, arch, seed, trials, device, C, X, rec, out_npz):
+    import torch
+    est, naive, H, t_e, t_n = estimators(X, m, arch)
+    rec.update(time_extract_s=t_e, time_extract_naive_s=t_n, diag=est.diag)
+    rec["diag"].update(exact_residual(X, m, arch, H))
+    tight = None
+    if conv_subset(seed):
+        t0 = time.time()
+        tight = tight_estimator(X, m, arch)
+        rec["time_extract_tight_s"] = time.time() - t0
+        rec["diag_tight"] = tight.diag
     Z, U, D, Uh = C.probe_samples(m, task, seed)
     reg = C.DefectFit(task)
     reg.fit(Z, U, D, seed, Uh=Uh)
-    T = 100 * task.T_train
     eps = task.eps
     out = {k: [] for k in ("meas", "E", "NS", "R", "B1", "B2", "scen", "rH")}
+    if tight is not None:
+        out.update(E_tight=[], rH_tight=[])
     tb = tf = 0.0
-    for si, name in enumerate(SCEN):
-        g = torch.Generator().manual_seed(9000 + 100 * si + seed)
-        if name == "x1":
-            u = task.inputs(trials, T, g)
-            mt = task.eval_mask(u)
-        elif name == "x0.5":
-            u = shifted_inputs(task, trials, T, g, 0.5)
-            mt = task.eval_mask(u)
-        else:
-            u = hold_inputs(trials, T, g)
-            mt = torch.ones(trials, T)
-            mt[:, :10] = 0
+    rec["input_bank_sha256"] = {}
+    for si, u, mt in scenarios(task, trials, seed):
+        rec["input_bank_sha256"][SCEN[si]] = hashlib.sha256(u.numpy().tobytes()).hexdigest()
         t1 = time.time()
         et, zt = C.native(m, u, task, device=device)
         tb += time.time() - t1
         t1 = time.time()
-        ep = C.err_norm(est.predict(u), zt)
+        yE = est.predict(u)
         tf += time.time() - t1
+        ep = C.err_norm(yE, zt)
         out["meas"].append(C.failure_times(et, mt, eps))
         out["E"].append(C.failure_times(ep, mt, eps))
-        out["NS"].append(C.failure_times(C.err_norm(naive.predict(u), zt), mt, eps))
         epm = (ep * mt).numpy()
-        out["rH"].append(np.stack([(eps - epm[:, :H].max(1)) / eps for H in HS], 1))
+        out["rH"].append(np.stack([(eps - epm[:, :h].max(1)) / eps for h in HS], 1))
+        out["NS"].append(C.failure_times(C.err_norm(naive.predict(u), zt), mt, eps))
         with torch.no_grad():
             out["R"].append(C.failure_times(C.err_norm(C.predict_N(reg, task, u), zt), mt, eps))
-        b1, b2 = C.baseline_times(et[:, :task.T_train], mt[:, :task.T_train], eps, T)
+        b1, b2 = C.baseline_times(et[:, :task.T_train], mt[:, :task.T_train], eps, T_TEST)
         out["B1"].append(b1)
         out["B2"].append(b2)
         out["scen"].append(np.full(trials, si))
-    rec["time_bruteforce_s"] = tb
-    rec["time_forecast_s"] = tf
+        yv = yE[..., 0].numpy()
+        rec[f"frac_pred_outside_manifold_{SCEN[si]}"] = float(np.mean(
+            (yv.min(1) < est.lo) | (yv.max(1) > est.hi)))
+        if tight is not None:
+            ept = C.err_norm(tight.predict(u), zt)
+            out["E_tight"].append(C.failure_times(ept, mt, eps))
+            eptm = (ept * mt).numpy()
+            out["rH_tight"].append(np.stack([(eps - eptm[:, :h].max(1)) / eps for h in HS], 1))
+    rec.update(time_bruteforce_s=tb, time_forecast_s=tf)
+    if task.name == "accumulation":
+        rec["closure"] = closure_test(task, m, est, seed, device, C)
     arr = {k: np.concatenate(v) for k, v in out.items()}
     np.savez(out_npz, **arr)
-    for si, name in enumerate(SCEN):
-        s = arr["scen"] == si
-        f = s & (arr["meas"] <= T)
-        lr = np.abs(np.log(arr["E"][f] / arr["meas"][f])) if f.any() else np.array([np.nan])
-        rec[f"summary_{name}"] = dict(frac_fail=float(np.mean(arr["meas"][s] <= T)),
-                                      median_abs_log_err_E=float(np.median(lr)))
+    f = arr["meas"] <= T_TEST
+    lr = np.abs(np.log(arr["E"][f] / arr["meas"][f])) if f.any() else np.array([np.nan])
+    rec["summary"] = dict(frac_fail=float(f.mean()), median_abs_log_err_E=float(np.median(lr)))
 
 
 def run_oscillation(task, m, arch, seed, device, C, X, rec):
     import torch
-    T = 100 * task.T_train
-    u = task.inputs(1, T, torch.Generator().manual_seed(9000 + seed))
+    u = task.inputs(1, T_TEST, torch.Generator().manual_seed(9000 + seed))
     et, zt = C.native(m, u, task, device=device)
     mt = task.eval_mask(u)
     t0 = time.time()
-    yE, d = X.oscillation_exact(m, arch, task, T)
+    yE, d = X.oscillation_exact(m, arch, task, T_TEST)
     rec["time_extract_s"] = time.time() - t0
-    b1, b2 = C.baseline_times(et[:, :task.T_train], mt[:, :task.T_train], task.eps, T)
+    b1, b2 = C.baseline_times(et[:, :task.T_train], mt[:, :task.T_train], task.eps, T_TEST)
+    eE = C.err_norm(yE, zt)
     rec.update(T_meas=float(C.failure_times(et, mt, task.eps)[0]),
-               T_E=float(C.failure_times(C.err_norm(yE, zt), mt, task.eps)[0]),
+               T_E=float(C.failure_times(eE, mt, task.eps)[0]),
                T_B1=float(b1[0]), T_B2=float(b2[0]),
-               err_end_meas=float(et[0, -1]), err_end_E=float(C.err_norm(yE, zt)[0, -1]), **d)
+               err_end_meas=float(et[0, -1]), err_end_E=float(eE[0, -1]), **d)
 
 
 def worker(job):
-    name, task_name, arch, N, seed, trials, iters, device, threads = job
+    name, task_name, arch, N, seed, trials, device, threads = job
     _setup(threads)
     import torch
     from hf_tasks import TASKS
@@ -141,16 +251,18 @@ def worker(job):
     os.makedirs(ndir, exist_ok=True)
     out_json = os.path.join(rdir, tag + ".json")
     if os.path.exists(out_json):
-        return f"skip {tag}"
+        return f"skip  {tag}"
     dev = device
     if dev == "auto":
         dev = "cuda" if torch.cuda.is_available() else "cpu"
-    rec = dict(tag=tag, task=task_name, arch=arch, N=N, seed=seed, trials=trials, device=dev)
+    iters, lr = train_cfg(task_name, arch, N)
+    rec = dict(tag=tag, cohort=name, task=task_name, arch=arch, N=N, seed=seed, trials=trials,
+               device=dev, iters=iters, lr=lr, conv_subset=conv_subset(seed))
     try:
         task = TASKS[task_name]()
         m = C.build(arch, task, N, seed)
         t0 = time.time()
-        rec["train_loss"] = C.train(m, task, seed, iters=iters, device=dev)
+        rec["train_loss"] = C.train(m, task, seed, iters=iters, lr=lr, device=dev)
         rec["time_train_s"] = time.time() - t0
         m.eval()
         torch.save(m.state_dict(), os.path.join(ndir, tag + ".pt"))
@@ -158,9 +270,9 @@ def worker(job):
         eg, _ = C.native(m, ug, task, device=dev)
         p95 = float(np.percentile(eg[task.eval_mask(ug) > 0].numpy(), 95))
         rec.update(gate_p95=p95, gate_pass=p95 < task.eps / 2)
-        if rec["gate_pass"]:
-            if task_name == "accumulation":
-                run_accumulation(task, m, arch, seed, trials, dev, C, X, rec, os.path.join(rdir, tag + ".npz"))
+        if rec["gate_pass"] and not os.environ.get("HF_GATE_ONLY"):   # HF_GATE_ONLY: development only
+            if task_name in ("hold", "accumulation"):
+                run_line(task, m, arch, seed, trials, dev, C, X, rec, os.path.join(rdir, tag + ".npz"))
             else:
                 run_oscillation(task, m, arch, seed, dev, C, X, rec)
         rec["status"] = "ok"
@@ -169,31 +281,34 @@ def worker(job):
         rec["error"] = traceback.format_exc()
     json.dump(rec, open(out_json, "w"), indent=1, default=float)
     t = sum(v for k, v in rec.items() if k.startswith("time_") and isinstance(v, float))
-    return f"{rec['status']:5s} {tag:30s} gate={'Y' if rec.get('gate_pass') else 'n'} total={t:.0f}s"
+    return f"{rec['status']:5s} {tag:30s} gate={'Y' if rec.get('gate_pass') else 'n'} p95={rec.get('gate_p95', float('nan')):.3f} total={t:.0f}s"
 
 
 def run_jobs(jobs, workers):
     ctx = mp.get_context("spawn")
     t0 = time.time()
-    with ctx.Pool(workers) as pool:
+    with ctx.Pool(workers, maxtasksperchild=1) as pool:
         for i, msg in enumerate(pool.imap_unordered(worker, jobs), 1):
             print(f"[{i}/{len(jobs)} {time.time() - t0:7.0f}s] {msg}", flush=True)
 
 
 def aggregate(name):
-    """Pool per-network npz files into results/cases3_prod_<name>.npz (decision3.py format)."""
     rdir = os.path.join(HERE, "results", "prod", name)
     rec = {k: [] for k in ("meas", "E", "NS", "R", "B1", "B2", "net", "scen", "lam2", "rH")}
-    nets, funnel = [], dict(attempted=0, gate_pass=0, error=0, extracted=0)
-    for p in sorted(glob.glob(os.path.join(rdir, "accumulation_*.json"))):
+    nets, funnel = [], {}
+    for p in sorted(glob.glob(os.path.join(rdir, "*.json"))):
         r = json.load(open(p))
-        funnel["attempted"] += 1
-        funnel["error"] += r["status"] == "error"
-        funnel["gate_pass"] += bool(r.get("gate_pass"))
+        if r["task"] == "oscillation":
+            continue
+        cell = f"{r['task']}_{r['arch']}_N{r['N']}"
+        fz = funnel.setdefault(cell, dict(attempted=0, gate_pass=0, error=0, forecast=0))
+        fz["attempted"] += 1
+        fz["error"] += r["status"] == "error"
+        fz["gate_pass"] += bool(r.get("gate_pass"))
         npz = p[:-5] + ".npz"
         if r["status"] != "ok" or not r.get("gate_pass") or not os.path.exists(npz):
             continue
-        funnel["extracted"] += 1
+        fz["forecast"] += 1
         d = np.load(npz)
         n = len(d["meas"])
         for k in ("meas", "E", "NS", "R", "B1", "B2", "scen", "rH"):
@@ -203,17 +318,27 @@ def aggregate(name):
         nets.append(r["tag"])
     out = {k: np.concatenate(v) for k, v in rec.items() if v}
     np.savez(os.path.join(HERE, "results", f"cases3_prod_{name}.npz"), nets=np.array(nets), **out)
-    print("funnel:", funnel, " -> results/cases3_prod_%s.npz" % name)
+    json.dump(funnel, open(os.path.join(HERE, "results", f"funnel_prod_{name}.json"), "w"), indent=1)
+    for c, f in sorted(funnel.items()):
+        print(f"  {c:28s} {f}")
 
 
-def bench_table(name):
-    rows = [json.load(open(p)) for p in sorted(glob.glob(os.path.join(HERE, "results", "prod", name, "*.json")))]
-    print(f"\n{'network':30s} {'gate':>4s} {'train':>7s} {'extract':>8s} {'naive':>7s} {'brute':>7s} {'forecast':>8s}  status")
-    for r in rows:
-        g = lambda k: f"{r[k]:7.1f}" if k in r else "     - "
-        print(f"{r['tag']:30s} {'Y' if r.get('gate_pass') else 'n':>4s} {g('time_train_s')} {g('time_extract_s')} "
-              f" {g('time_extract_naive_s')} {g('time_bruteforce_s')} {g('time_forecast_s')}  {r['status']}")
-    print("(seconds; brute/forecast are for all 3 scenarios x --trials trials x 5000 steps)")
+def parse_seeds(items):
+    out = []
+    for it in items:
+        if "-" in str(it):
+            a, b = map(int, str(it).split("-"))
+            out.extend(range(a, b + 1))
+        else:
+            out.append(int(it))
+    return out
+
+
+def make_jobs(name, tasks, archs, widths, seeds, trials, device, threads):
+    jobs = [(name, t, ar, w, s, trials, device, threads)
+            for t in tasks for ar in archs for w in widths for s in seeds]
+    jobs.sort(key=lambda j: -(j[3] * (2 if j[2] == "lstm" else 1)))   # big jobs first
+    return jobs
 
 
 if __name__ == "__main__":
@@ -223,23 +348,20 @@ if __name__ == "__main__":
     ap.add_argument("--tasks", nargs="+", default=["accumulation"])
     ap.add_argument("--archs", nargs="+", default=["rnn", "gru", "lstm"])
     ap.add_argument("--widths", nargs="+", type=int, default=[32, 128, 512])
-    ap.add_argument("--seeds", nargs="+", type=int, default=[900])
+    ap.add_argument("--seeds", nargs="+", default=["900"])
     ap.add_argument("--trials", type=int, default=1024)
-    ap.add_argument("--iters", type=int, default=4000)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--threads", type=int, default=2, help="CPU threads per worker")
     ap.add_argument("--device", default="auto")
     a = ap.parse_args()
+    # pin BLAS/OpenMP threads per worker (inherited by spawned workers) to avoid oversubscription
+    for v in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
+        os.environ[v] = str(a.threads)
     if a.cmd == "aggregate":
         aggregate(a.name)
         sys.exit()
     if a.cmd == "bench":
         a.name, a.trials = "bench", 256
-    jobs = [(a.name, t, ar, w, s, a.trials, a.iters, a.device, a.threads)
-            for t in a.tasks for ar in a.archs for w in a.widths for s in a.seeds]
-    # largest jobs first so the long ones start early
-    jobs.sort(key=lambda j: -(j[3] * (2 if j[2] == "lstm" else 1)))
-    print(f"{len(jobs)} jobs, {a.workers} workers, device={a.device}")
+    jobs = make_jobs(a.name, a.tasks, a.archs, a.widths, parse_seeds(a.seeds), a.trials, a.device, a.threads)
+    print(f"{len(jobs)} jobs, {a.workers} workers, device={a.device}", flush=True)
     run_jobs(jobs, a.workers)
-    if a.cmd == "bench":
-        bench_table(a.name)
