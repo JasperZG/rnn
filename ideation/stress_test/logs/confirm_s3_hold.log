@@ -1,0 +1,30 @@
+/Users/jasper/Desktop/rnn/ideation/stress_test/hf_exact.py:81: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r0 = float(resid().norm(dim=1).median())
+accumulation_gru_N128_s10      hold medT=   648 fail=0.84 agree E=1.00 R=0.50 | rho E=1.00 R=0.92 | med pred E=648
+accumulation_gru_N128_s11      hold medT=   297 fail=0.88 agree E=1.00 R=1.00 | rho E=1.00 R=0.98 | med pred E=293
+accumulation_gru_N128_s12      hold medT=   700 fail=0.88 agree E=1.00 R=0.29 | rho E=1.00 R=-0.08 | med pred E=698
+accumulation_gru_N128_s13      hold medT=   596 fail=0.86 agree E=1.00 R=0.57 | rho E=1.00 R=0.42 | med pred E=594
+accumulation_gru_N128_s14      hold medT=   321 fail=0.99 agree E=1.00 R=0.43 | rho E=1.00 R=0.77 | med pred E=330
+accumulation_gru_N32_s10       hold medT=   573 fail=1.00 agree E=1.00 R=0.62 | rho E=1.00 R=0.60 | med pred E=568
+accumulation_gru_N32_s11       hold medT=  1144 fail=0.78 agree E=1.00 R=0.31 | rho E=1.00 R=0.54 | med pred E=1163
+accumulation_gru_N32_s12       hold medT=   914 fail=0.81 agree E=1.00 R=0.82 | rho E=1.00 R=0.95 | med pred E=918
+accumulation_gru_N32_s13       hold medT=  2308 fail=0.68 agree E=1.00 R=0.48 | rho E=1.00 R=0.88 | med pred E=2298
+accumulation_gru_N32_s14       hold medT=   425 fail=0.86 agree E=1.00 R=0.82 | rho E=1.00 R=0.97 | med pred E=424
+accumulation_lstm_N128_s10     hold medT=   596 fail=0.81 agree E=1.00 R=0.79 | rho E=1.00 R=0.89 | med pred E=594
+accumulation_lstm_N128_s11     hold medT=   557 fail=0.90 agree E=1.00 R=0.12 | rho E=1.00 R=0.44 | med pred E=557
+accumulation_lstm_N128_s12     hold medT=   962 fail=0.78 agree E=1.00 R=0.12 | rho E=1.00 R=0.35 | med pred E=956
+accumulation_lstm_N128_s13     hold medT=   838 fail=0.90 agree E=1.00 R=0.25 | rho E=1.00 R=0.59 | med pred E=832
+accumulation_lstm_N128_s14     hold medT=   304 fail=0.79 agree E=0.99 R=0.31 | rho E=1.00 R=0.59 | med pred E=310
+accumulation_lstm_N32_s10      hold medT=   350 fail=0.99 agree E=1.00 R=0.12 | rho E=1.00 R=0.94 | med pred E=353
+accumulation_lstm_N32_s11      hold medT=   111 fail=1.00 agree E=1.00 R=0.74 | rho E=1.00 R=0.99 | med pred E=114
+accumulation_lstm_N32_s12      hold medT=   895 fail=0.87 agree E=1.00 R=0.13 | rho E=1.00 R=0.55 | med pred E=897
+accumulation_lstm_N32_s13      hold medT=   405 fail=0.85 agree E=1.00 R=0.38 | rho E=1.00 R=0.38 | med pred E=402
+accumulation_lstm_N32_s14      hold medT=   361 fail=0.99 agree E=1.00 R=0.04 | rho E=1.00 R=0.92 | med pred E=368
+accumulation_rnn_N128_s10      hold medT=   171 fail=0.70 agree E=1.00 R=0.36 | rho E=1.00 R=0.68 | med pred E=170
+accumulation_rnn_N128_s11      hold medT=   200 fail=0.84 agree E=1.00 R=0.82 | rho E=1.00 R=0.97 | med pred E=200
+accumulation_rnn_N128_s13      hold medT=   298 fail=0.66 agree E=1.00 R=0.89 | rho E=1.00 R=0.96 | med pred E=298
+accumulation_rnn_N32_s11       hold medT=   224 fail=0.64 agree E=1.00 R=0.19 | rho E=1.00 R=-0.25 | med pred E=224
+accumulation_rnn_N32_s12       hold medT=   150 fail=0.95 agree E=1.00 R=0.02 | rho E=1.00 R=-0.04 | med pred E=150
+accumulation_rnn_N32_s13       hold medT=   142 fail=1.00 agree E=1.00 R=0.55 | rho E=1.00 R=0.53 | med pred E=142
+accumulation_rnn_N32_s14       hold medT=    88 fail=0.92 agree E=1.00 R=0.45 | rho E=1.00 R=0.79 | med pred E=89

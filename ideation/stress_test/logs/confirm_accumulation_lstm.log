@@ -1,0 +1,10 @@
+accumulation_lstm_N32_s10        gate=Y p95=0.011 fail=1.00 medT=504 | N:0.36/0.50 L:0.44/0.63 B1:0.07/0.02 B2:0.06/0.15 | 25s
+accumulation_lstm_N32_s11        gate=Y p95=0.052 fail=1.00 medT=214 | N:0.79/0.84 L:0.88/0.91 B1:0.27/0.16 B2:0.29/0.18 | 25s
+accumulation_lstm_N32_s12        gate=Y p95=0.015 fail=1.00 medT=532 | N:0.39/0.46 L:0.48/0.58 B1:0.25/0.03 B2:0.27/-0.02 | 25s
+accumulation_lstm_N32_s13        gate=Y p95=0.031 fail=1.00 medT=292 | N:0.71/0.75 L:0.75/0.75 B1:0.23/0.26 B2:0.18/0.30 | 24s
+accumulation_lstm_N32_s14        gate=Y p95=0.008 fail=1.00 medT=538 | N:0.39/0.36 L:0.46/0.46 B1:0.03/0.14 B2:0.05/0.11 | 25s
+accumulation_lstm_N128_s10       gate=Y p95=0.026 fail=1.00 medT=466 | N:0.66/0.59 L:0.73/0.70 B1:0.24/0.17 B2:0.29/0.19 | 69s
+accumulation_lstm_N128_s11       gate=Y p95=0.005 fail=1.00 medT=631 | N:0.58/0.53 L:0.67/0.63 B1:0.04/0.00 B2:0.05/0.03 | 58s
+accumulation_lstm_N128_s12       gate=Y p95=0.005 fail=1.00 medT=504 | N:0.69/0.67 L:0.75/0.74 B1:0.04/0.01 B2:0.02/0.08 | 56s
+accumulation_lstm_N128_s13       gate=Y p95=0.019 fail=1.00 medT=592 | N:0.69/0.58 L:0.78/0.72 B1:0.20/0.01 B2:0.28/-0.01 | 56s
+accumulation_lstm_N128_s14       gate=Y p95=0.033 fail=1.00 medT=344 | N:0.81/0.80 L:0.78/0.71 B1:0.16/-0.00 B2:0.16/0.09 | 45s

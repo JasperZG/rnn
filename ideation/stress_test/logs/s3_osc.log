@@ -1,0 +1,41 @@
+oscillation_gru_N128_s0        T meas=  5001 E=  5001 R=  5001 | end err meas=0.1759 E=0.1686 | slip/step=-3.39e-05
+oscillation_gru_N128_s1        T meas=  5001 E=  5001 R=  5001 | end err meas=0.1010 E=0.1064 | slip/step=-2.14e-05
+oscillation_gru_N128_s2        T meas=  3460 E=  3469 R=  5001 | end err meas=0.3597 E=0.3590 | slip/step=-7.24e-05
+oscillation_gru_N128_s3        T meas=  5001 E=  5001 R=  5001 | end err meas=0.1156 E=0.1146 | slip/step=-2.30e-05
+oscillation_gru_N128_s4        T meas=  1587 E=  1579 R=  1936 | end err meas=0.7696 E=0.7730 | slip/step=-1.59e-04
+oscillation_gru_N32_s0         T meas=  5001 E=  5001 R=  5001 | end err meas=0.0708 E=0.0661 | slip/step=-1.33e-05
+oscillation_gru_N32_s1         T meas=   147 E=   148 R=   149 | end err meas=1.8733 E=1.8555 | slip/step=1.74e-03
+oscillation_gru_N32_s2         T meas=  5001 E=  5001 R=  5001 | end err meas=0.0211 E=0.0204 | slip/step=4.04e-06
+oscillation_gru_N32_s3         T meas=  5001 E=  5001 R=  5001 | end err meas=0.0379 E=0.0364 | slip/step=7.30e-06
+oscillation_gru_N32_s4         T meas=  5001 E=  5001 R=  5001 | end err meas=0.0861 E=0.0877 | slip/step=-1.78e-05
+oscillation_lstm_N128_s0       T meas=  5001 E=  5001 R=  5001 | end err meas=0.1259 E=0.1260 | slip/step=-2.56e-05
+oscillation_lstm_N128_s1       T meas=  5001 E=  5001 R=  5001 | end err meas=0.0894 E=0.0874 | slip/step=-1.76e-05
+oscillation_lstm_N128_s2       T meas=  3619 E=  3635 R=  4164 | end err meas=0.3438 E=0.3421 | slip/step=-6.90e-05
+oscillation_lstm_N128_s3       T meas=  5001 E=  5001 R=  5001 | end err meas=0.0880 E=0.0881 | slip/step=-1.76e-05
+oscillation_lstm_N32_s0        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0391 E=0.0392 | slip/step=-8.00e-06
+oscillation_lstm_N32_s1        T meas=   556 E=   556 R=   592 | end err meas=1.8051 E=1.8044 | slip/step=-4.50e-04
+oscillation_lstm_N32_s2        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0464 E=0.0545 | slip/step=-1.09e-05
+oscillation_lstm_N32_s3        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0081 E=0.0082 | slip/step=1.62e-06
+oscillation_lstm_N32_s4        T meas=  2374 E=  2375 R=  1639 | end err meas=0.5187 E=0.5193 | slip/step=1.04e-04
+oscillation_rnn_N128_s0        T meas=  5001 E=  5001 R=  4340 | end err meas=0.0005 E=0.0226 | slip/step=4.63e-06
+oscillation_rnn_N128_s1        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0001 E=0.0009 | slip/step=-1.67e-07
+oscillation_rnn_N128_s2        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0001 E=0.0156 | slip/step=3.12e-06
+oscillation_rnn_N128_s3        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0020 E=0.0021 | slip/step=-1.88e-08
+oscillation_rnn_N128_s4        T meas=  5001 E=  5001 R=  5001 | end err meas=0.0018 E=0.0258 | slip/step=5.19e-06
+oscillation_rnn_N32_s0         T meas=  5001 E=  5001 R=  5001 | end err meas=0.0393 E=0.0479 | slip/step=-9.46e-06
+oscillation_rnn_N32_s1         T meas=  2402 E=  2375 R=  2215 | end err meas=0.5104 E=0.5190 | slip/step=1.05e-04
+oscillation_rnn_N32_s2         T meas=  5001 E=  5001 R=  5001 | end err meas=0.1518 E=0.1565 | slip/step=3.11e-05
+oscillation_rnn_N32_s3         T meas=  5001 E=  5001 R=  5001 | end err meas=0.1636 E=0.1628 | slip/step=3.25e-05
+oscillation_rnn_N32_s4         T meas=  5001 E=  5001 R=  5001 | end err meas=0.0485 E=0.0483 | slip/step=1.01e-05
+Traceback (most recent call last):
+  File "/Users/jasper/Desktop/rnn/ideation/stress_test/run_stage3.py", line 114, in <module>
+    (run_accumulation if a.task == "accumulation" else run_oscillation)(a.src, out)
+  File "/Users/jasper/Desktop/rnn/ideation/stress_test/run_stage3.py", line 92, in run_oscillation
+    yE, d = X.oscillation_exact(m, r["arch"], task, T)
+  File "/Users/jasper/Desktop/rnn/ideation/stress_test/hf_exact.py", line 150, in oscillation_exact
+    S = f(S, u)
+  File "/Users/jasper/Desktop/rnn/ideation/stress_test/hf_exact.py", line 16, in <lambda>
+    f = lambda S, u: torch.tanh((m.g * m.task.F(S @ m.V, u)) @ m.V.T)
+  File "/Users/jasper/Desktop/rnn/ideation/stress_test/hf_tasks.py", line 138, in F
+    return z @ self.R.T + torch.cat([u, torch.zeros_like(u)], -1)
+RuntimeError: expected m1 and m2 to have the same dtype, but got: double != float

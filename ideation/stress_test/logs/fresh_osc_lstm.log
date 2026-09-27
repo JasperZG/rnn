@@ -1,0 +1,10 @@
+oscillation_lstm_N32_s5          gate=Y p95=0.027 fail=1.00 medT=427 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 20s
+oscillation_lstm_N32_s6          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 20s
+oscillation_lstm_N32_s7          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 19s
+oscillation_lstm_N32_s8          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 19s
+oscillation_lstm_N32_s9          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 19s
+oscillation_lstm_N128_s5         gate=Y p95=0.088 fail=1.00 medT=141 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 62s
+oscillation_lstm_N128_s6         gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 49s
+oscillation_lstm_N128_s7         gate=n p95=0.208 fail=1.00 medT=58 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 47s
+oscillation_lstm_N128_s8         gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 45s
+oscillation_lstm_N128_s9         gate=Y p95=0.003 fail=1.00 medT=3006 | N:1.00/nan L:1.00/nan B1:0.00/nan B2:1.00/nan | 81s

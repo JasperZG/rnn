@@ -1,0 +1,10 @@
+oscillation_gru_N32_s5           gate=Y p95=0.013 fail=1.00 medT=1004 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N32_s6           gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N32_s7           gate=Y p95=0.003 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N32_s8           gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 17s
+oscillation_gru_N32_s9           gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N128_s5          gate=Y p95=0.005 fail=1.00 medT=2598 | N:1.00/nan L:0.00/nan B1:0.00/nan B2:1.00/nan | 47s
+oscillation_gru_N128_s6          gate=Y p95=0.059 fail=1.00 medT=201 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 43s
+oscillation_gru_N128_s7          gate=Y p95=0.002 fail=1.00 medT=4045 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 38s
+oscillation_gru_N128_s8          gate=Y p95=0.022 fail=1.00 medT=781 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 37s
+oscillation_gru_N128_s9          gate=Y p95=0.020 fail=1.00 medT=594 | N:1.00/nan L:1.00/nan B1:0.00/nan B2:1.00/nan | 37s

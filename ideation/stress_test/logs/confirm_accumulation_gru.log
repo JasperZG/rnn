@@ -1,0 +1,10 @@
+accumulation_gru_N32_s10         gate=Y p95=0.027 fail=1.00 medT=314 | N:0.91/0.79 L:0.93/0.85 B1:0.30/0.22 B2:0.28/0.26 | 23s
+accumulation_gru_N32_s11         gate=Y p95=0.014 fail=1.00 medT=504 | N:0.86/0.92 L:0.80/0.86 B1:0.21/-0.05 B2:0.21/-0.04 | 24s
+accumulation_gru_N32_s12         gate=Y p95=0.012 fail=1.00 medT=452 | N:0.99/0.99 L:0.93/0.96 B1:0.14/-0.03 B2:0.13/0.01 | 24s
+accumulation_gru_N32_s13         gate=Y p95=0.009 fail=1.00 medT=473 | N:0.97/0.98 L:0.95/0.97 B1:0.12/-0.10 B2:0.05/-0.08 | 21s
+accumulation_gru_N32_s14         gate=Y p95=0.007 fail=1.00 medT=524 | N:0.97/0.97 L:0.89/0.87 B1:0.08/0.17 B2:0.05/0.09 | 23s
+accumulation_gru_N128_s10        gate=Y p95=0.006 fail=1.00 medT=532 | N:0.89/0.93 L:0.86/0.87 B1:0.06/0.14 B2:0.02/0.17 | 56s
+accumulation_gru_N128_s11        gate=Y p95=0.064 fail=1.00 medT=272 | N:1.00/1.00 L:0.93/0.96 B1:0.23/0.21 B2:0.28/0.25 | 50s
+accumulation_gru_N128_s12        gate=Y p95=0.004 fail=1.00 medT=588 | N:0.84/0.89 L:0.71/0.82 B1:0.07/-0.09 B2:0.03/0.16 | 49s
+accumulation_gru_N128_s13        gate=Y p95=0.005 fail=1.00 medT=576 | N:0.95/0.93 L:0.89/0.91 B1:0.02/0.02 B2:0.02/0.10 | 49s
+accumulation_gru_N128_s14        gate=Y p95=0.009 fail=1.00 medT=483 | N:0.68/0.61 L:0.67/0.55 B1:0.01/0.10 B2:0.05/0.07 | 46s

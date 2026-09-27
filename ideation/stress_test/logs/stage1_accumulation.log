@@ -1,0 +1,43 @@
+accumulation_rnn_N32_s0          gate=Y p95=0.029 fail=1.00 medT=417 | N:0.73/0.76 L:0.62/0.68 B1:0.18/-0.00 B2:0.24/0.05 | 9s
+accumulation_rnn_N32_s1          gate=Y p95=0.044 fail=1.00 medT=362 | N:0.68/0.58 L:0.66/0.56 B1:0.19/0.24 B2:0.27/0.23 | 8s
+accumulation_rnn_N32_s2          gate=Y p95=0.059 fail=1.00 medT=192 | N:0.91/0.90 L:0.76/0.83 B1:0.46/0.12 B2:0.47/0.25 | 9s
+accumulation_rnn_N32_s3          gate=Y p95=0.049 fail=1.00 medT=207 | N:0.82/0.85 L:0.66/0.73 B1:0.21/0.15 B2:0.12/0.28 | 9s
+accumulation_rnn_N32_s4          gate=Y p95=0.030 fail=1.00 medT=342 | N:0.80/0.84 L:0.89/0.94 B1:0.16/0.04 B2:0.21/0.08 | 9s
+accumulation_rnn_N128_s0         gate=Y p95=0.106 fail=1.00 medT=170 | N:0.84/0.70 L:0.79/0.60 B1:0.30/0.23 B2:0.41/0.31 | 19s
+accumulation_rnn_N128_s1         gate=n p95=0.159 fail=1.00 medT=109 | N:0.98/0.97 L:0.89/0.91 B1:0.41/0.41 B2:0.55/0.53 | 21s
+accumulation_rnn_N128_s2         gate=Y p95=0.073 fail=1.00 medT=181 | N:0.87/0.81 L:0.76/0.73 B1:0.41/0.12 B2:0.57/0.23 | 20s
+accumulation_rnn_N128_s3         gate=Y p95=0.064 fail=1.00 medT=198 | N:0.94/0.95 L:0.81/0.84 B1:0.17/0.14 B2:0.24/0.16 | 20s
+accumulation_rnn_N128_s4         gate=Y p95=0.043 fail=1.00 medT=246 | N:0.98/0.99 L:0.86/0.88 B1:0.20/-0.01 B2:0.23/0.01 | 24s
+accumulation_gru_N32_s0          gate=Y p95=0.007 fail=1.00 medT=485 | N:0.98/0.99 L:0.93/0.92 B1:0.20/-0.01 B2:0.04/0.04 | 17s
+accumulation_gru_N32_s1          gate=Y p95=0.011 fail=1.00 medT=494 | N:0.96/0.99 L:0.93/0.94 B1:0.20/0.01 B2:0.11/0.08 | 16s
+accumulation_gru_N32_s2          gate=Y p95=0.032 fail=1.00 medT=343 | N:1.00/0.99 L:0.96/0.94 B1:0.36/0.21 B2:0.41/0.22 | 16s
+accumulation_gru_N32_s3          gate=Y p95=0.004 fail=1.00 medT=551 | N:0.96/0.98 L:0.88/0.86 B1:0.06/0.08 B2:0.01/0.14 | 16s
+accumulation_gru_N32_s4          gate=Y p95=0.004 fail=1.00 medT=458 | N:0.95/0.98 L:0.89/0.92 B1:0.07/0.03 B2:0.01/0.03 | 16s
+accumulation_gru_N128_s0         gate=Y p95=0.004 fail=1.00 medT=591 | N:0.87/0.90 L:0.78/0.83 B1:0.03/0.02 B2:0.02/0.06 | 48s
+accumulation_gru_N128_s1         gate=Y p95=0.009 fail=1.00 medT=585 | N:0.88/0.87 L:0.78/0.77 B1:0.08/0.11 B2:0.11/0.14 | 51s
+accumulation_gru_N128_s2         gate=Y p95=0.005 fail=1.00 medT=674 | N:0.92/0.95 L:0.86/0.90 B1:0.08/0.14 B2:0.04/0.18 | 50s
+accumulation_gru_N128_s3         gate=Y p95=0.008 fail=1.00 medT=618 | N:0.92/0.93 L:0.84/0.82 B1:0.10/-0.07 B2:0.14/-0.09 | 47s
+accumulation_gru_N128_s4         gate=Y p95=0.005 fail=1.00 medT=546 | N:0.97/0.98 L:0.91/0.92 B1:0.04/0.04 B2:0.03/-0.00 | 54s
+accumulation_lstm_N32_s0         gate=Y p95=0.008 fail=1.00 medT=573 | N:0.34/0.26 L:0.43/0.43 B1:0.05/-0.01 B2:0.06/0.08 | 20s
+accumulation_lstm_N32_s1         gate=Y p95=0.022 fail=1.00 medT=368 | N:0.54/0.48 L:0.59/0.55 B1:0.21/0.12 B2:0.21/0.14 | 20s
+accumulation_lstm_N32_s2         gate=Y p95=0.026 fail=1.00 medT=392 | N:0.49/0.28 L:0.49/0.32 B1:0.29/0.27 B2:0.29/0.30 | 20s
+accumulation_lstm_N32_s3         gate=Y p95=0.008 fail=1.00 medT=493 | N:0.53/0.38 L:0.61/0.49 B1:0.03/0.08 B2:0.06/0.04 | 23s
+accumulation_lstm_N32_s4         gate=Y p95=0.005 fail=1.00 medT=520 | N:0.52/0.45 L:0.57/0.57 B1:0.00/0.04 B2:0.02/0.24 | 20s
+accumulation_lstm_N128_s0        gate=Y p95=0.011 fail=1.00 medT=428 | N:0.65/0.68 L:0.71/0.73 B1:0.11/0.09 B2:0.06/0.12 | 63s
+accumulation_lstm_N128_s1        gate=Y p95=0.008 fail=1.00 medT=462 | N:0.76/0.76 L:0.83/0.87 B1:0.09/0.08 B2:0.05/0.04 | 61s
+accumulation_lstm_N128_s2        gate=Y p95=0.013 fail=1.00 medT=634 | N:0.55/0.39 L:0.59/0.46 B1:0.22/-0.04 B2:0.31/0.02 | 64s
+accumulation_lstm_N128_s3        gate=Y p95=0.013 fail=1.00 medT=420 | N:0.89/0.91 L:0.91/0.93 B1:0.12/0.04 B2:0.07/0.03 | 60s
+accumulation_lstm_N128_s4        gate=Y p95=0.009 fail=1.00 medT=406 | N:0.80/0.77 L:0.84/0.83 B1:0.06/0.08 B2:0.04/0.18 | 61s
+/Users/jasper/Desktop/rnn/ideation/stress_test/run_stage1.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  if arch == "tc":
+accumulation_tc_N32_s0           gate=Y p95=0.068 fail=1.00 medT=230 | N:1.00/1.00 L:0.87/0.88 B1:0.23/-0.03 B2:0.33/0.01 | 2s
+accumulation_tc_N32_s1           gate=Y p95=0.042 fail=1.00 medT=220 | N:1.00/1.00 L:0.89/0.92 B1:0.24/0.14 B2:0.27/0.16 | 2s
+accumulation_tc_N32_s2           gate=Y p95=0.045 fail=1.00 medT=192 | N:1.00/1.00 L:0.88/0.88 B1:0.19/0.20 B2:0.09/0.33 | 2s
+accumulation_tc_N32_s3           gate=Y p95=0.043 fail=1.00 medT=202 | N:1.00/1.00 L:0.94/0.95 B1:0.20/0.11 B2:0.15/0.21 | 2s
+accumulation_tc_N32_s4           gate=Y p95=0.038 fail=1.00 medT=214 | N:1.00/1.00 L:0.88/0.90 B1:0.22/0.07 B2:0.21/0.13 | 2s
+accumulation_tc_N128_s0          gate=Y p95=0.029 fail=1.00 medT=401 | N:1.00/1.00 L:0.92/0.95 B1:0.23/0.05 B2:0.32/0.01 | 3s
+accumulation_tc_N128_s1          gate=Y p95=0.010 fail=1.00 medT=302 | N:1.00/1.00 L:0.93/0.95 B1:0.13/0.17 B2:0.03/0.19 | 3s
+accumulation_tc_N128_s2          gate=Y p95=0.011 fail=1.00 medT=295 | N:1.00/1.00 L:0.89/0.92 B1:0.13/0.07 B2:0.04/0.23 | 3s
+accumulation_tc_N128_s3          gate=Y p95=0.010 fail=1.00 medT=310 | N:1.00/1.00 L:0.91/0.91 B1:0.16/0.05 B2:0.05/0.03 | 3s
+accumulation_tc_N128_s4          gate=Y p95=0.018 fail=1.00 medT=318 | N:1.00/1.00 L:0.95/0.92 B1:0.23/-0.04 B2:0.18/-0.06 | 3s

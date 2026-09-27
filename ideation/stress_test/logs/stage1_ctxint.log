@@ -1,0 +1,43 @@
+ctxint_rnn_N32_s0                gate=n p95=0.135 fail=1.00 medT=142 | N:0.48/0.17 L:0.44/0.18 B1:0.27/0.44 B2:0.40/0.51 | 13s
+ctxint_rnn_N32_s1                gate=n p95=0.260 fail=1.00 medT=80 | N:0.43/0.36 L:0.38/0.36 B1:0.47/0.74 B2:0.55/0.76 | 11s
+ctxint_rnn_N32_s2                gate=Y p95=0.083 fail=1.00 medT=192 | N:0.36/0.50 L:0.32/0.50 B1:0.14/0.14 B2:0.29/0.33 | 12s
+ctxint_rnn_N32_s3                gate=Y p95=0.114 fail=1.00 medT=147 | N:0.54/0.47 L:0.53/0.54 B1:0.23/0.06 B2:0.35/0.07 | 12s
+ctxint_rnn_N32_s4                gate=Y p95=0.097 fail=1.00 medT=154 | N:0.52/0.44 L:0.52/0.49 B1:0.31/0.26 B2:0.44/0.43 | 12s
+ctxint_rnn_N128_s0               gate=Y p95=0.119 fail=1.00 medT=134 | N:0.62/0.60 L:0.54/0.52 B1:0.25/0.38 B2:0.34/0.45 | 24s
+ctxint_rnn_N128_s1               gate=n p95=0.163 fail=1.00 medT=101 | N:0.57/0.67 L:0.51/0.65 B1:0.30/0.41 B2:0.49/0.59 | 25s
+ctxint_rnn_N128_s2               gate=n p95=0.133 fail=1.00 medT=140 | N:0.49/0.39 L:0.45/0.31 B1:0.32/0.26 B2:0.48/0.30 | 25s
+ctxint_rnn_N128_s3               gate=n p95=0.130 fail=1.00 medT=126 | N:0.76/0.76 L:0.67/0.70 B1:0.30/0.37 B2:0.40/0.45 | 27s
+ctxint_rnn_N128_s4               gate=Y p95=0.104 fail=1.00 medT=148 | N:0.58/0.51 L:0.55/0.55 B1:0.16/0.22 B2:0.26/0.32 | 24s
+ctxint_gru_N32_s0                gate=Y p95=0.044 fail=1.00 medT=310 | N:0.43/0.11 L:0.46/0.21 B1:0.17/0.46 B2:0.33/0.49 | 19s
+ctxint_gru_N32_s1                gate=Y p95=0.040 fail=1.00 medT=280 | N:0.45/0.15 L:0.51/0.30 B1:0.32/-0.02 B2:0.55/-0.05 | 19s
+ctxint_gru_N32_s2                gate=Y p95=0.026 fail=1.00 medT=404 | N:0.38/0.30 L:0.38/0.39 B1:0.08/0.04 B2:0.17/0.08 | 19s
+ctxint_gru_N32_s3                gate=Y p95=0.028 fail=1.00 medT=576 | N:0.27/0.26 L:0.25/0.30 B1:0.07/0.16 B2:0.25/0.10 | 19s
+ctxint_gru_N32_s4                gate=Y p95=0.030 fail=1.00 medT=241 | N:0.39/0.30 L:0.46/0.40 B1:0.09/-0.02 B2:0.10/0.10 | 23s
+ctxint_gru_N128_s0               gate=Y p95=0.044 fail=1.00 medT=314 | N:0.73/0.73 L:0.70/0.74 B1:0.16/0.38 B2:0.25/0.40 | 53s
+ctxint_gru_N128_s1               gate=n p95=0.161 fail=1.00 medT=113 | N:0.63/0.49 L:0.64/0.44 B1:0.86/0.72 B2:0.92/0.80 | 51s
+ctxint_gru_N128_s2               gate=Y p95=0.029 fail=1.00 medT=322 | N:0.50/0.48 L:0.47/0.55 B1:0.28/0.18 B2:0.25/0.19 | 50s
+ctxint_gru_N128_s3               gate=Y p95=0.020 fail=1.00 medT=498 | N:0.17/0.27 L:0.15/0.29 B1:0.09/0.12 B2:0.13/0.08 | 59s
+ctxint_gru_N128_s4               gate=Y p95=0.045 fail=1.00 medT=307 | N:0.21/0.21 L:0.18/0.29 B1:0.18/0.11 B2:0.34/0.18 | 62s
+ctxint_lstm_N32_s0               gate=Y p95=0.037 fail=1.00 medT=340 | N:0.25/0.09 L:0.29/0.15 B1:0.19/0.22 B2:0.38/0.35 | 23s
+ctxint_lstm_N32_s1               gate=Y p95=0.085 fail=1.00 medT=146 | N:0.54/0.51 L:0.52/0.47 B1:0.53/0.32 B2:0.60/0.46 | 22s
+ctxint_lstm_N32_s2               gate=Y p95=0.052 fail=1.00 medT=247 | N:0.36/0.45 L:0.43/0.52 B1:0.25/0.23 B2:0.36/0.30 | 21s
+ctxint_lstm_N32_s3               gate=Y p95=0.042 fail=1.00 medT=324 | N:0.53/0.72 L:0.66/0.78 B1:0.12/0.33 B2:0.20/0.33 | 23s
+ctxint_lstm_N32_s4               gate=Y p95=0.027 fail=1.00 medT=349 | N:0.22/0.26 L:0.27/0.33 B1:0.11/-0.02 B2:0.18/0.11 | 21s
+ctxint_lstm_N128_s0              gate=Y p95=0.097 fail=1.00 medT=174 | N:0.38/0.16 L:0.43/0.24 B1:0.33/0.40 B2:0.39/0.51 | 65s
+ctxint_lstm_N128_s1              gate=Y p95=0.097 fail=1.00 medT=138 | N:0.65/0.50 L:0.68/0.59 B1:0.45/0.08 B2:0.63/0.26 | 67s
+ctxint_lstm_N128_s2              gate=Y p95=0.055 fail=1.00 medT=216 | N:0.57/0.44 L:0.65/0.54 B1:0.21/0.25 B2:0.31/0.27 | 62s
+ctxint_lstm_N128_s3              gate=Y p95=0.037 fail=1.00 medT=294 | N:0.47/0.54 L:0.56/0.60 B1:0.18/0.28 B2:0.24/0.33 | 60s
+ctxint_lstm_N128_s4              gate=Y p95=0.034 fail=1.00 medT=268 | N:0.56/0.42 L:0.60/0.51 B1:0.30/0.09 B2:0.30/0.15 | 49s
+/Users/jasper/Desktop/rnn/ideation/stress_test/run_stage1.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  if arch == "tc":
+ctxint_tc_N32_s0                 gate=Y p95=0.044 fail=1.00 medT=216 | N:1.00/1.00 L:0.88/0.89 B1:0.25/0.10 B2:0.30/0.21 | 3s
+ctxint_tc_N32_s1                 gate=Y p95=0.062 fail=1.00 medT=220 | N:1.00/1.00 L:0.87/0.86 B1:0.27/-0.00 B2:0.35/0.17 | 3s
+ctxint_tc_N32_s2                 gate=Y p95=0.072 fail=1.00 medT=216 | N:1.00/1.00 L:0.85/0.85 B1:0.23/0.15 B2:0.39/0.14 | 3s
+ctxint_tc_N32_s3                 gate=Y p95=0.046 fail=1.00 medT=233 | N:1.00/1.00 L:0.91/0.92 B1:0.27/0.09 B2:0.31/0.14 | 3s
+ctxint_tc_N32_s4                 gate=Y p95=0.062 fail=1.00 medT=251 | N:1.00/1.00 L:0.87/0.85 B1:0.28/0.13 B2:0.39/0.21 | 3s
+ctxint_tc_N128_s0                gate=Y p95=0.013 fail=1.00 medT=334 | N:1.00/1.00 L:0.92/0.94 B1:0.17/-0.00 B2:0.08/0.05 | 4s
+ctxint_tc_N128_s1                gate=Y p95=0.022 fail=1.00 medT=328 | N:1.00/1.00 L:0.91/0.95 B1:0.21/-0.00 B2:0.21/0.14 | 4s
+ctxint_tc_N128_s2                gate=Y p95=0.034 fail=1.00 medT=418 | N:1.00/1.00 L:0.89/0.89 B1:0.22/0.00 B2:0.31/0.04 | 4s
+ctxint_tc_N128_s3                gate=Y p95=0.015 fail=1.00 medT=374 | N:1.00/1.00 L:0.89/0.89 B1:0.23/0.08 B2:0.17/0.02 | 4s
+ctxint_tc_N128_s4                gate=Y p95=0.021 fail=1.00 medT=372 | N:1.00/1.00 L:0.93/0.94 B1:0.27/0.08 B2:0.24/0.16 | 4s

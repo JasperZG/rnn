@@ -1,0 +1,43 @@
+flipflop_rnn_N32_s0              gate=Y p95=0.003 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.93/nan B2:1.00/nan | 15s
+flipflop_rnn_N32_s1              gate=Y p95=0.006 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.99/nan B2:0.96/nan | 14s
+flipflop_rnn_N32_s2              gate=Y p95=0.007 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.96/nan B2:0.99/nan | 14s
+flipflop_rnn_N32_s3              gate=Y p95=0.004 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.98/nan B2:0.99/nan | 14s
+flipflop_rnn_N32_s4              gate=Y p95=0.005 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.97/nan B2:1.00/nan | 15s
+flipflop_rnn_N128_s0             gate=Y p95=0.009 fail=0.00 medT=8001 | N:1.00/nan L:0.99/nan B1:0.97/nan B2:0.95/nan | 33s
+flipflop_rnn_N128_s1             gate=Y p95=0.004 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 36s
+flipflop_rnn_N128_s2             gate=Y p95=0.004 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.98/nan B2:1.00/nan | 35s
+flipflop_rnn_N128_s3             gate=Y p95=0.016 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.98/nan B2:0.82/nan | 33s
+flipflop_rnn_N128_s4             gate=Y p95=0.006 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.99/nan B2:0.99/nan | 33s
+flipflop_gru_N32_s0              gate=Y p95=0.007 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.92/nan B2:0.97/nan | 29s
+flipflop_gru_N32_s1              gate=Y p95=0.010 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.95/nan B2:0.92/nan | 31s
+flipflop_gru_N32_s2              gate=Y p95=0.005 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.90/nan B2:0.98/nan | 29s
+flipflop_gru_N32_s3              gate=Y p95=0.006 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.94/nan B2:0.97/nan | 29s
+flipflop_gru_N32_s4              gate=Y p95=0.008 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.92/nan B2:0.96/nan | 28s
+flipflop_gru_N128_s0             gate=Y p95=0.006 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.81/nan B2:0.98/nan | 81s
+flipflop_gru_N128_s1             gate=Y p95=0.004 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.92/nan B2:0.98/nan | 90s
+flipflop_gru_N128_s2             gate=Y p95=0.019 fail=0.00 medT=8001 | N:1.00/nan L:0.00/nan B1:0.78/nan B2:0.46/nan | 80s
+flipflop_gru_N128_s3             gate=Y p95=0.005 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.93/nan B2:1.00/nan | 76s
+flipflop_gru_N128_s4             gate=Y p95=0.005 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.95/nan B2:0.99/nan | 75s
+flipflop_lstm_N32_s0             gate=Y p95=0.008 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.94/nan B2:0.97/nan | 31s
+flipflop_lstm_N32_s1             gate=Y p95=0.059 fail=0.00 medT=8001 | N:1.00/nan L:0.00/-0.07 B1:0.91/-0.02 B2:0.32/-0.07 | 29s
+flipflop_lstm_N32_s2             gate=Y p95=0.007 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.96/nan B2:0.98/nan | 29s
+flipflop_lstm_N32_s3             gate=Y p95=0.008 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.89/nan B2:0.97/nan | 29s
+flipflop_lstm_N32_s4             gate=Y p95=0.021 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.88/nan B2:0.61/nan | 26s
+flipflop_lstm_N128_s0            gate=Y p95=0.003 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.96/nan B2:1.00/nan | 71s
+flipflop_lstm_N128_s1            gate=Y p95=0.013 fail=0.00 medT=8001 | N:1.00/nan L:0.56/nan B1:0.93/nan B2:0.04/nan | 66s
+flipflop_lstm_N128_s2            gate=Y p95=0.004 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.87/nan B2:1.00/nan | 66s
+flipflop_lstm_N128_s3            gate=Y p95=0.006 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.81/nan B2:0.99/nan | 66s
+flipflop_lstm_N128_s4            gate=Y p95=0.016 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:0.95/nan B2:0.86/nan | 64s
+/Users/jasper/Desktop/rnn/ideation/stress_test/run_stage1.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  if arch == "tc":
+flipflop_tc_N32_s0               gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+flipflop_tc_N32_s1               gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+flipflop_tc_N32_s2               gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+flipflop_tc_N32_s3               gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+flipflop_tc_N32_s4               gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+flipflop_tc_N128_s0              gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+flipflop_tc_N128_s1              gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+flipflop_tc_N128_s2              gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+flipflop_tc_N128_s3              gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+flipflop_tc_N128_s4              gate=Y p95=0.000 fail=0.00 medT=8001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s

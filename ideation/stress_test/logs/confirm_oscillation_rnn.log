@@ -1,0 +1,10 @@
+oscillation_rnn_N32_s10          gate=Y p95=0.003 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 13s
+oscillation_rnn_N32_s11          gate=Y p95=0.004 fail=0.00 medT=5001 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 13s
+oscillation_rnn_N32_s12          gate=Y p95=0.057 fail=1.00 medT=215 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 13s
+oscillation_rnn_N32_s13          gate=Y p95=0.005 fail=1.00 medT=2666 | N:1.00/nan L:1.00/nan B1:0.00/nan B2:1.00/nan | 13s
+oscillation_rnn_N32_s14          gate=Y p95=0.018 fail=1.00 medT=651 | N:1.00/nan L:1.00/nan B1:0.00/nan B2:1.00/nan | 14s
+oscillation_rnn_N128_s10         gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 22s
+oscillation_rnn_N128_s11         gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 23s
+oscillation_rnn_N128_s12         gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 24s
+oscillation_rnn_N128_s13         gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 25s
+oscillation_rnn_N128_s14         gate=Y p95=0.005 fail=0.00 medT=5001 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 26s

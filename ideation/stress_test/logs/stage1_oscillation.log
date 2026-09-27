@@ -1,0 +1,43 @@
+oscillation_rnn_N32_s0           gate=Y p95=0.005 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 10s
+oscillation_rnn_N32_s1           gate=Y p95=0.007 fail=1.00 medT=2402 | N:1.00/nan L:1.00/nan B1:0.00/nan B2:1.00/nan | 10s
+oscillation_rnn_N32_s2           gate=Y p95=0.005 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 10s
+oscillation_rnn_N32_s3           gate=Y p95=0.006 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 10s
+oscillation_rnn_N32_s4           gate=Y p95=0.004 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 10s
+oscillation_rnn_N128_s0          gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 21s
+oscillation_rnn_N128_s1          gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 22s
+oscillation_rnn_N128_s2          gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 22s
+oscillation_rnn_N128_s3          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 24s
+oscillation_rnn_N128_s4          gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 24s
+oscillation_gru_N32_s0           gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N32_s1           gate=Y p95=0.083 fail=1.00 medT=147 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N32_s2           gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N32_s3           gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 17s
+oscillation_gru_N32_s4           gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 18s
+oscillation_gru_N128_s0          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 55s
+oscillation_gru_N128_s1          gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 53s
+oscillation_gru_N128_s2          gate=Y p95=0.003 fail=1.00 medT=3460 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 48s
+oscillation_gru_N128_s3          gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:0.00/nan B1:1.00/nan B2:1.00/nan | 54s
+oscillation_gru_N128_s4          gate=Y p95=0.007 fail=1.00 medT=1587 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 55s
+oscillation_lstm_N32_s0          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 22s
+oscillation_lstm_N32_s1          gate=Y p95=0.021 fail=1.00 medT=556 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 25s
+oscillation_lstm_N32_s2          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 22s
+oscillation_lstm_N32_s3          gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 21s
+oscillation_lstm_N32_s4          gate=Y p95=0.009 fail=1.00 medT=2374 | N:1.00/nan L:0.00/nan B1:0.00/nan B2:0.00/nan | 20s
+oscillation_lstm_N128_s0         gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 62s
+oscillation_lstm_N128_s1         gate=Y p95=0.001 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 66s
+oscillation_lstm_N128_s2         gate=Y p95=0.003 fail=1.00 medT=3619 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 64s
+oscillation_lstm_N128_s3         gate=Y p95=0.002 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 63s
+oscillation_lstm_N128_s4         gate=n p95=0.245 fail=1.00 medT=50 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 57s
+/Users/jasper/Desktop/rnn/ideation/stress_test/run_stage1.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  if arch == "tc":
+oscillation_tc_N32_s0            gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+oscillation_tc_N32_s1            gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+oscillation_tc_N32_s2            gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+oscillation_tc_N32_s3            gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+oscillation_tc_N32_s4            gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 2s
+oscillation_tc_N128_s0           gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+oscillation_tc_N128_s1           gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+oscillation_tc_N128_s2           gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+oscillation_tc_N128_s3           gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s
+oscillation_tc_N128_s4           gate=Y p95=0.000 fail=0.00 medT=5001 | N:1.00/nan L:1.00/nan B1:1.00/nan B2:1.00/nan | 3s

@@ -1,0 +1,5 @@
+{
+ "gamma": 0.03,
+ "dev_worst_wrong": 0.006527415143603133,
+ "target_met": true
+}

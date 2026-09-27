@@ -1,0 +1,22 @@
+{
+ "E": {
+  "margin": 0.1,
+  "dev_worst_wrong": 0.00644122383252818,
+  "target_met": true
+ },
+ "R": {
+  "margin": 3.0,
+  "dev_worst_wrong": 0.2982336956521739,
+  "target_met": false
+ },
+ "B1": {
+  "margin": 3.0,
+  "dev_worst_wrong": 0.8295977011494253,
+  "target_met": false
+ },
+ "B2": {
+  "margin": 3.0,
+  "dev_worst_wrong": 0.8038914490527393,
+  "target_met": false
+ }
+}
