@@ -37,9 +37,9 @@ def train_cfg(task_name, arch, N):
     """Training hyperparameters (iterations, learning rate), fixed in Amendment 8."""
     if os.environ.get("HF_ITERS_OVERRIDE"):          # smoke tests only; recorded in every result
         return int(os.environ["HF_ITERS_OVERRIDE"]), float(os.environ.get("HF_LR_OVERRIDE", 2e-3))
-    if N >= 512:
-        return 4000, 5e-4
-    return 4000, 2e-3
+    if arch == "rnn" and (task_name == "hold" or N >= 512):
+        return 8000, 5e-4        # vanilla RNN: hold task and width 512 (development seeds 510-527)
+    return 4000, 2e-3            # GRU/LSTM everywhere; vanilla accumulation N<=128; oscillation
 
 
 def conv_subset(seed):
@@ -250,7 +250,9 @@ def run_line(task, m, arch, seed, trials, device, C, X, rec, out_npz):
     if task.name == "accumulation":
         rec["closure"] = closure_test(task, m, est, seed, device, C)
     arr = {k: np.concatenate(v) for k, v in out.items()}
-    np.savez(out_npz, **arr)
+    # failure times are integer steps (censored = T_TEST + 1); margins as float32
+    store = {k: (v.astype(np.float32) if k.startswith("rH") else v.astype(np.int32)) for k, v in arr.items()}
+    np.savez_compressed(out_npz, **store)
     f = arr["meas"] <= T_TEST
     lr = np.abs(np.log(arr["E"][f] / arr["meas"][f])) if f.any() else np.array([np.nan])
     rec["summary"] = dict(frac_fail=float(f.mean()), median_abs_log_err_E=float(np.median(lr)))
@@ -354,7 +356,7 @@ def aggregate(name):
         rec["lam2"].append(np.full(n, r["diag"]["lam2_max"]))
         nets.append(r["tag"])
     out = {k: np.concatenate(v) for k, v in rec.items() if v}
-    np.savez(os.path.join(HERE, "results", f"cases3_prod_{name}.npz"), nets=np.array(nets), **out)
+    np.savez_compressed(os.path.join(HERE, "results", f"cases3_prod_{name}.npz"), nets=np.array(nets), **out)
     json.dump(funnel, open(os.path.join(HERE, "results", f"funnel_prod_{name}.json"), "w"), indent=1)
     for c, f in sorted(funnel.items()):
         print(f"  {c:28s} {f}")

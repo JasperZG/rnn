@@ -449,3 +449,168 @@ advance.
 
 The old 10% rule, applied to the same seeds, would again have missed the 90%
 useful-approval bar in five long-horizon driven cells (0.66–0.89).
+
+
+## Amendment 8: preregistered production run
+
+*Written after development runs on development-only seeds (500–549) and before
+any production seed (≥ 1000) was trained. Code frozen and hashed in
+`results/FROZEN_PROD_SHA256.txt`; committed and pushed before launch.*
+
+**Hardware.** Windows PC with an Intel i7-14700F (20 cores / 28 threads), 32 GB
+RAM and an RTX 5060 Ti 16 GB. Python 3.13, PyTorch 2.11 nightly (CUDA 12.8).
+Training runs on the GPU. Estimator extraction runs in float64 on the CPU.
+
+**Development decisions, fixed here.** Benchmark seed 900 and development
+seeds 500–549 are development only and are never analyzed as production.
+
+- **Training (`prod.train_cfg`):**
+
+  | networks | iterations | learning rate |
+  |---|---|---|
+  | GRU and LSTM (every task and width) | 4000 | 2e-3 |
+  | vanilla RNN on hold (all widths) and vanilla RNN at N = 512 (both tasks) | 8000 | 5e-4 |
+  | vanilla RNN on accumulation at N ≤ 128, and all oscillation networks | 4000 | 2e-3 (the settings validated in earlier stages) |
+
+  Evidence, development gate pass counts:
+
+  | vanilla RNN condition | 4000 at 2e-3 | 4000 at 1e-3 | 4000 at 5e-4 | 8000 at 1e-3 | 8000 at 5e-4 |
+  |---|---|---|---|---|---|
+  | N = 512 | 0/4 | 1/4 | 3/4 | 3/8 | 6/6 when the setting was chosen |
+  | hold, N = 32/128 | 5/8 | — | — | 7/8 | 8/8 |
+
+  At 4000 / 2e-3, GRU and LSTM passed 16/16 at N = 512.
+- **Device placement.** Vanilla RNNs with N ≤ 128 train and roll out on the
+  CPU; their per-step loop is launch-bound on the GPU and about 10× slower
+  there. Everything else trains on CUDA. At most 3 processes use the GPU at
+  once (a shared semaphore).
+- **Crash during development.** The PC blue-screened at 03:09 with bug check
+  0x133, DPC_WATCHDOG_VIOLATION. Eight processes were using the GPU at the
+  time, and Windows Update had installed an OS upgrade and restarted the
+  machine an hour earlier. The GPU semaphore and CPU placement above are the
+  mitigation. The runner is resumable, and an external watchdog relaunches it
+  after any reboot. A network whose job is interrupted leaves no result file
+  and is re-run from scratch with the same seed (training is deterministic
+  given the seed, up to GPU nondeterminism).
+- **Storage.** Per-trial files store failure times as int32 (exact; they are
+  integer steps) and margins as float32, compressed.
+- Hold is a **separately trained task** (`hf_tasks.Hold`). A value z₀ ~ U(−1.5,
+  1.5) is loaded as 10 equal increments, then must be held with zero input.
+  Declared F = z + u. Scored from t ≥ 10. The earlier hold *scenario* results
+  (Amendments 4–7) remain as recorded.
+- Full-network rollouts are chunked (128 trials per chunk). This is
+  numerically identical to the unchunked rollout; the change only limits
+  memory use.
+
+**Cohorts.** Every seed is new. Tags encode task, architecture and width.
+
+| cohort | tasks | archs | widths | base seeds | top-up seeds | eligible target per cell |
+|---|---|---|---|---|---|---|
+| factorial | hold, accumulation | rnn, gru, lstm | 32, 128, 512 | 1000–1059 (60) | 1060–1079 | 50 |
+| deep128 | hold | rnn, gru, lstm | 128 | 2000–2059 (60) | 2060–2079 | 50 |
+| osc | oscillation | rnn, gru, lstm | 32, 128 | 3000–3035 (36) | 3036–3047 | 30 |
+
+**Top-up rule** (uses gate results only). If a cell has fewer eligible
+(gate-passing) networks than its target after the base seeds, add top-up
+seeds in blocks of 5, in order, until the target is reached or the top-up
+seeds are exhausted. **All** eligible networks are analyzed; none are dropped
+to hit a target. A network that passes the gate but errors during extraction
+is reported as an extraction failure and is not replaced.
+
+**Gate** (unchanged). 95th-percentile scored training-horizon error < ε/2 on
+256 fresh trials.
+
+**Trial banks.** Deterministic from the network seed. Each bank's SHA-256
+is recorded in the network's result file.
+
+| network type | trials | seed |
+|---|---|---|
+| hold network | 1024 hold trials | 9000 + seed |
+| accumulation network | 1024 normal trials | 9100 + seed |
+| accumulation network | 1024 weaker-input trials (×0.5) | 9200 + seed |
+
+T_max = 5000. No crossing by T_max means right-censored.
+Oscillation: one autonomous pulse response per network, T_max = 5000.
+
+**Predictors.**
+- E: the frozen invariant-manifold estimator.
+- NS: the naive slow-point estimator (same pipeline, invariance solve
+  removed).
+- R: short-probe regression.
+- B1, B2: extrapolation of the error over t ≤ T_train.
+- Validation-only.
+
+**Policies.**
+- **A:** approve if T̂_E > 1.10·H (the old rule, reported only).
+- **B:** the Amendment 7 rule: unsupported if Λ₂ ≥ 1, otherwise approve if
+  r_H ≥ γ = 0.03.
+
+H ∈ {250, 500, 1000, 2000}.
+
+**Diagnostics** (recorded for every network before outcomes are pooled):
+- Λ₂;
+- exact discrete invariance residual (median, p90, max) at held-out manifold
+  points;
+- tangent-form residual;
+- fraction of forecasts leaving the manifold's range;
+- paired-history closure error (accumulation networks);
+- timings.
+
+**Tight-numerics subset.** Preselected as seed % 10 == 3, about 10% of
+networks. Re-extracted with 2× manifold points, 2× input grid and 10,000
+L-BFGS iterations. Reports the change in T̂ and in policy-B decisions.
+
+**Coordinate-transform control.** A separate controlled experiment
+(`coord_control.py`), reported separately.
+
+**Pass criteria** (`analyze_prod.py`). Cells are (task, arch, width).
+
+- **PC1.** In every factorial cell, the median over networks of each
+  network's median |log(T̂_E/T)| (failing trials) is ≤ 0.05.
+- **PC2.** In every factorial cell × scenario, the pooled median |log error|
+  of E is lower than NS (the measurement correction matters).
+- **PC3.** Same comparison: E lower than R, B1 and B2.
+- **PC4.** Policy B P(F|A) ≤ 2% in every (cell, scenario, H) with ≥ 50
+  approvals.
+- **PC5.** Policy B P(A|¬F) ≥ 90% in every (cell, scenario, H) with ≥ 50
+  truly-OK cases.
+- **PC6.** At matched coverage, policy B's P(F|A) is ≤ that of NS, R, B1 and
+  B2 in ≥ 90% of eligible (cell, scenario, H) combinations, and strictly
+  lower in ≥ 80%.
+- **PC7.** Oscillation: fail vs no-fail correct in ≥ 90% of networks; among
+  failing networks, ≥ 75% are within 1.5×.
+- **PC8.** Deep reliability (hold N = 128, factorial + deep pooled): PC4 and
+  PC5 hold in every architecture.
+
+**Reported without a pass/fail criterion:**
+- the full confusion matrices (P(F|A), P(A|F), P(A|¬F), coverage) and AUC;
+- policy A;
+- the network-level distribution of worst-cell P(F|A) (median, IQR, p90,
+  p95, max, and fractions above 2% and 5%);
+- Spearman correlations between diagnostics and network-level error;
+- the convergence subset, closure test, funnel and timings.
+
+**Observed during development (not tuned away).**
+- The hold-trained GRU (dev seed 530, N = 128) had Λ₂ = 0.999, a second
+  nearly non-decaying direction. Its forecast error was 21%, against 2% for
+  the hold-trained LSTM (Λ₂ = 0.89).
+- Hold-only training may leave extra slow modes. The frozen estimator is
+  unchanged. Production measures how often this happens, and PC1 applies to
+  hold cells as written.
+- **Coordinate-transform control** (`coord_control.py`, stage-1 confirmation
+  vanilla RNNs):
+  - the naive slow-point forecast was wrong in every condition (median
+    |log err| 0.13–1.96) and moved as coordinates changed;
+  - the invariant-manifold forecast was unchanged for well-conditioned
+    transforms (cond(S) ≤ ~5, and in most networks up to ~150; |log err|
+    ~0.01);
+  - it degraded (0.2–0.4) in some networks at cond(S) ≈ 300–1150, where the
+    float32 transformed network is itself no longer the same computation
+    (output mismatch up to 4e-3).
+
+  Reported as a limitation.
+
+**What this run does not include.** The external navigation study is a
+separate feasibility project and is not part of this run.
+
+Final count for vanilla RNN N = 512 at 8000 / 5e-4 (dev seeds 512–515, both tasks): see `logs` on the production PC; recorded at freeze time as 6/6, completed as 8/8.
