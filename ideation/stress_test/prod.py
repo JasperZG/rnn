@@ -46,6 +46,40 @@ def conv_subset(seed):
     return seed % 10 == 3
 
 
+GPU_SEM = None
+
+
+def _init_pool(sem):
+    """Pool initializer: share a semaphore limiting concurrent GPU work (a
+    DPC_WATCHDOG bugcheck occurred on the production PC with 8 concurrent GPU jobs)."""
+    global GPU_SEM
+    GPU_SEM = sem
+
+
+class _gpu:
+    def __init__(self, device):
+        self.on = device.startswith("cuda") and GPU_SEM is not None
+
+    def __enter__(self):
+        if self.on:
+            GPU_SEM.acquire()
+
+    def __exit__(self, *a):
+        if self.on:
+            GPU_SEM.release()
+
+
+def resolve_device(device, arch, N):
+    """auto: vanilla RNNs with N <= 128 train and roll out on the CPU (their per-step
+    loop is launch-bound on the GPU, ~10x slower there); everything else on CUDA."""
+    import torch
+    if device != "auto":
+        return device
+    if arch == "rnn" and N <= 128:
+        return "cpu"
+    return "cuda" if torch.cuda.is_available() else "cpu"
+
+
 def _setup(threads):
     import torch
     torch.set_num_threads(threads)
@@ -117,7 +151,7 @@ def closure_test(task, m, est, seed, device, C):
     g = torch.Generator().manual_seed(4000 + seed)
     B, L1, L2 = 2048, 30, 20
     hist = task.inputs(B, L1, g)
-    with torch.no_grad():
+    with torch.no_grad(), _gpu(device):
         m.to(device)
         z30 = m(hist.to(device))[0][:, -1, 0].cpu().numpy()
         m.to("cpu")
@@ -131,7 +165,7 @@ def closure_test(task, m, est, seed, device, C):
     cont = task.inputs(len(pairs), L2, g)
     ua = torch.cat([hist[a], cont], 1)
     ub = torch.cat([hist[b], cont], 1)
-    with torch.no_grad():
+    with torch.no_grad(), _gpu(device):
         m.to(device)
         ya = m(ua.to(device))[0][:, -1, 0].cpu().numpy()
         yb = m(ub.to(device))[0][:, -1, 0].cpu().numpy()
@@ -186,7 +220,8 @@ def run_line(task, m, arch, seed, trials, device, C, X, rec, out_npz):
     for si, u, mt in scenarios(task, trials, seed):
         rec["input_bank_sha256"][SCEN[si]] = hashlib.sha256(u.numpy().tobytes()).hexdigest()
         t1 = time.time()
-        et, zt = C.native(m, u, task, device=device)
+        with _gpu(device):
+            et, zt = C.native(m, u, task, device=device)
         tb += time.time() - t1
         t1 = time.time()
         yE = est.predict(u)
@@ -224,7 +259,8 @@ def run_line(task, m, arch, seed, trials, device, C, X, rec, out_npz):
 def run_oscillation(task, m, arch, seed, device, C, X, rec):
     import torch
     u = task.inputs(1, T_TEST, torch.Generator().manual_seed(9000 + seed))
-    et, zt = C.native(m, u, task, device=device)
+    with _gpu(device):
+        et, zt = C.native(m, u, task, device=device)
     mt = task.eval_mask(u)
     t0 = time.time()
     yE, d = X.oscillation_exact(m, arch, task, T_TEST)
@@ -252,9 +288,7 @@ def worker(job):
     out_json = os.path.join(rdir, tag + ".json")
     if os.path.exists(out_json):
         return f"skip  {tag}"
-    dev = device
-    if dev == "auto":
-        dev = "cuda" if torch.cuda.is_available() else "cpu"
+    dev = resolve_device(device, arch, N)
     iters, lr = train_cfg(task_name, arch, N)
     rec = dict(tag=tag, cohort=name, task=task_name, arch=arch, N=N, seed=seed, trials=trials,
                device=dev, iters=iters, lr=lr, conv_subset=conv_subset(seed))
@@ -262,12 +296,14 @@ def worker(job):
         task = TASKS[task_name]()
         m = C.build(arch, task, N, seed)
         t0 = time.time()
-        rec["train_loss"] = C.train(m, task, seed, iters=iters, lr=lr, device=dev)
+        with _gpu(dev):
+            rec["train_loss"] = C.train(m, task, seed, iters=iters, lr=lr, device=dev)
         rec["time_train_s"] = time.time() - t0
         m.eval()
         torch.save(m.state_dict(), os.path.join(ndir, tag + ".pt"))
         ug = task.inputs(256, task.T_train, torch.Generator().manual_seed(7000 + seed))
-        eg, _ = C.native(m, ug, task, device=dev)
+        with _gpu(dev):
+            eg, _ = C.native(m, ug, task, device=dev)
         p95 = float(np.percentile(eg[task.eval_mask(ug) > 0].numpy(), 95))
         rec.update(gate_p95=p95, gate_pass=p95 < task.eps / 2)
         if rec["gate_pass"] and not os.environ.get("HF_GATE_ONLY"):   # HF_GATE_ONLY: development only
@@ -284,10 +320,11 @@ def worker(job):
     return f"{rec['status']:5s} {tag:30s} gate={'Y' if rec.get('gate_pass') else 'n'} p95={rec.get('gate_p95', float('nan')):.3f} total={t:.0f}s"
 
 
-def run_jobs(jobs, workers):
+def run_jobs(jobs, workers, gpu_slots=3):
     ctx = mp.get_context("spawn")
     t0 = time.time()
-    with ctx.Pool(workers, maxtasksperchild=1) as pool:
+    sem = ctx.Semaphore(gpu_slots)
+    with ctx.Pool(workers, initializer=_init_pool, initargs=(sem,), maxtasksperchild=1) as pool:
         for i, msg in enumerate(pool.imap_unordered(worker, jobs), 1):
             print(f"[{i}/{len(jobs)} {time.time() - t0:7.0f}s] {msg}", flush=True)
 
@@ -353,6 +390,7 @@ if __name__ == "__main__":
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--threads", type=int, default=2, help="CPU threads per worker")
     ap.add_argument("--device", default="auto")
+    ap.add_argument("--gpu-slots", type=int, default=3, help="max concurrent GPU jobs")
     a = ap.parse_args()
     # pin BLAS/OpenMP threads per worker (inherited by spawned workers) to avoid oversubscription
     for v in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
@@ -364,4 +402,4 @@ if __name__ == "__main__":
         a.name, a.trials = "bench", 256
     jobs = make_jobs(a.name, a.tasks, a.archs, a.widths, parse_seeds(a.seeds), a.trials, a.device, a.threads)
     print(f"{len(jobs)} jobs, {a.workers} workers, device={a.device}", flush=True)
-    run_jobs(jobs, a.workers)
+    run_jobs(jobs, a.workers, a.gpu_slots)

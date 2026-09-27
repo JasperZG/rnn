@@ -131,14 +131,19 @@ def failure_times(err, mask, eps):
     return t.numpy().astype(float)
 
 
-def native(model, u, task, device="cpu"):
-    """Full-network rollout (optionally on GPU); outputs returned on CPU."""
+def native(model, u, task, device="cpu", chunk=128):
+    """Full-network rollout (optionally on GPU), in chunks of trials so the
+    hidden-state history never exceeds chunk x T x N; outputs returned on CPU."""
+    ys = []
     with torch.no_grad():
         model.to(device)
-        y, _ = model(u.to(device))
+        for i in range(0, u.shape[0], chunk):
+            y, _ = model(u[i:i + chunk].to(device))
+            ys.append(y.cpu())
+            del y
         model.to("cpu")
     z = task.targets(u)
-    return err_norm(y.cpu(), z), z
+    return err_norm(torch.cat(ys), z), z
 
 
 # ---------------------------------------------------------------------------
