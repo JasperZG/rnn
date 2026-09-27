@@ -8,3 +8,4 @@
 *.npz  binary
 *.pt   binary
 *.png  binary
+*.bat  text eol=crlf
